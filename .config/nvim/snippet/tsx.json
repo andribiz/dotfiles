@@ -1,0 +1,40 @@
+{
+    "nextpage": {
+        "prefix": "nxtp",
+        "body": [
+            "import { NextPage } from 'next';",
+            "",
+            "",
+            "const ${1:name}: NextPage = () => {",
+            " return (${2:component});",
+            "} ",
+            "",
+            "export default ${1:name}"
+        ],
+        "description": "Mod test"
+    },
+    "nextcom": {
+        "prefix": "nxtc",
+        "body": [
+            "import { FC } from 'react';",
+            "",
+            "",
+            "const ${1:name}: FC = () => {",
+            " return (${2:component});",
+            "} ",
+            "",
+            "export default ${1:name}"
+        ],
+        "description": "Next Component"
+    },
+    "constf": {
+        "prefix": "csf",
+        "body": [
+            "",
+            "const ${1:name} = () => {",
+            "  ${2}",
+            "};"
+        ],
+        "description": "const function"
+    }
+}
