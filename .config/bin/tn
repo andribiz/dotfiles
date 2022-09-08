@@ -1,0 +1,5 @@
+#!/bin/bash
+
+DIR_NAME=${PWD##*/}
+
+tmux new -s $DIR_NAME
