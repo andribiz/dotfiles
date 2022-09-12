@@ -177,13 +177,13 @@ USE_GKE_GCLOUD_AUTH_PLUGIN=True
 
 # My alias command 
 alias v="/usr/local/bin/nvim"
-alias lg="lazygit"
+alias lg="gitui"
 alias t="tmux"
 alias tl="tmux list"
 alias td="tmux detach"
 alias ta="tmux attach -t $1"
-alias gp="git push"
-alias gl="git pull"
+alias gps="git push"
+alias gpl="git pull"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/andrix/sdk/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/andrix/sdk/google-cloud-sdk/path.zsh.inc'; fi
