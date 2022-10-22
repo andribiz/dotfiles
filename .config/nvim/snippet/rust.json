@@ -13,7 +13,7 @@
         "prefix": "structder",
         "body": [
             "#[derive(Debug)] ",
-            "struct ${1:name} {",
+            "${1:visibility} struct ${2:name} {",
             " ",
             "}"
         ],
