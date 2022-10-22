@@ -21,6 +21,7 @@ local servers = { "jsonls",
     "cssls",
     "tailwindcss",
     "svelte",
+    -- "sqls",
     -- "solc",
     -- "solang",
     "solidity_ls"
@@ -60,4 +61,4 @@ vim.api.nvim_create_autocmd("FileType", { pattern = { "javascript",
     "typescriptreact", "typescript.tsx" }, command = "setlocal tabstop=2 shiftwidth=2 softtabstop=2" })
 
 vim.cmd [[autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })]]
-vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()]]
+vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
