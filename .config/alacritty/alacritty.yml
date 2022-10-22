@@ -69,13 +69,13 @@ font:
     family: Hack Nerd Font Mono
     style: Italic
 
-  # Bold italic font face
+  # Bold italic font fac
   bold_italic:
     family: Hack Nerd Font Mono
     style: Bold Italic
 
   # Point size
-  size: 14.0
+  size: 12.5
   use_thin_strokes: true
 
 mouse:
@@ -137,6 +137,7 @@ key_bindings:
   - { key: K, mods: Command, chars: "\x00\x73" } # jump session
   - { key: Comma, mods: Command, chars: "\x00\x2c" } # rename window
   - { key: A, mods: Command, chars: "\x00\x73" } # attach
-  - { key: Q, mods: Command, chars: "\x00\x64" } # detach
+  - { key: D, mods: Command, chars: "\x00\x64" } # detach
   # neovim specific shortcuts
   - { key: S, mods: Command, chars: "\x1b\x3a\x77\x0a" } # neovim save
+  - { key: Q, mods: Command, action: None }
