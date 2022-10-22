@@ -28,15 +28,16 @@ export PATH=$PATH:/usr/local/Cellar/libpq/12.1_1/bin
 export PATH=$PATH:/Users/andrix/Library/Python/2.7/bin
 export PATH=$PATH:$HOME/sdk/flutter/bin
 export PATH=$PATH:/Users/andrix/Library/Python/3.9/bin
-export PATH=$PATH:/Users/andrix/sdk/rust/cargo/bin/bin
+export PATH=$PATH:/Users/andrix/sdk/rust/cargo/bin
+# export PATH=$PATH:/Users/andrix/sdk/rust/rustup/toolchains/stable-x86_64-apple-darwin/bin
 export PATH=$PATH:/Users/andrix/sdk/hyperledger-fabric-1.4.7/bin
 export PATH=$PATH:/Users/andrix/sdk/istio-1.10.2/bin
 export PATH=$PATH:/Users/andrix/.pyenv/shim
 #export PATH=$PATH:/Users/andrix/sdk/hyperledger-fabric-2.2/bin
 export NODE_PATH=/Users/andrix/.nvm/versions/node/v12.16.3/lib/node_modules
 export PATH="$PATH:/usr/local/opt/libpq/bin"
-export CARGO_HOME="/Users/andrix/sdk/rust/rustup/toolchains/stable-x86_64-apple-darwin"
-# export RUSTUP_HOME="/Users/andrix/sdk/rust/rustup"
+export CARGO_HOME=/Users/andrix/sdk/rust/cargo
+export RUSTUP_HOME=/Users/andrix/sdk/rust/cargo
 
 # Sementara di remove karena lambaattt.. 
 # export NVM_DIR="$HOME/.nvm"
@@ -177,7 +178,7 @@ USE_GKE_GCLOUD_AUTH_PLUGIN=True
 
 # My alias command 
 alias v="/usr/local/bin/nvim"
-alias lg="gitui"
+alias lg="lazygit"
 alias t="tmux"
 alias tl="tmux list"
 alias td="tmux detach"
