@@ -185,6 +185,8 @@ alias td="tmux detach"
 alias ta="tmux attach -t $1"
 alias gps="git push"
 alias gpl="git pull"
+alias ll="exa -l --group --icons"
+alias lt="exa --tree --level=4 --icons"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/andrix/sdk/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/andrix/sdk/google-cloud-sdk/path.zsh.inc'; fi
