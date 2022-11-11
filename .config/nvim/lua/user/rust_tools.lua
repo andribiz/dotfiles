@@ -1,5 +1,5 @@
 -- Update this path
-local extension_path = '/Users/andrix/.vscode/extensions/vadimcn.vscode-lldb-1.7.0/'
+local extension_path = '/Users/andrix/.vscode/extensions/vadimcn.vscode-lldb-1.8.1/'
 local codelldb_path = extension_path .. 'adapter/codelldb'
 local liblldb_path = extension_path .. 'lldb/lib/liblldb.dylib'
 
