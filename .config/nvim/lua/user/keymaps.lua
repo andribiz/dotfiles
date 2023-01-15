@@ -21,16 +21,16 @@ vim.g.maplocalleader = " "
 -- Normal --
 
 -- Resize with arrows
--- this is not working
 keymap("n", "<A-Up>", ":resize -2<CR>", opts)
 keymap("n", "<A-Down>", ":resize +2<CR>", opts)
+-- this is not working
 keymap("n", "<A-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<A-Right>", ":vertical resize +2<CR>", opts)
 
 
 -- Move text up and down
-keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
-keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
+keymap("n", "<A-k>", ":m .-2<CR>==", opts)
+keymap("n", "<A-j>", ":m .+1<CR>==", opts)
 keymap("n", "x", '"_x', opts)
 
 keymap("n", "<leader>e", ":NvimTreeToggle <CR>", opts)
@@ -53,8 +53,6 @@ keymap("v", "p", '"_dP', opts)
 -- Move text up and down
 keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
-keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 -- Telescope
 keymap("n", "<leader>ff", "<cmd>Telescope find_files<cr>", opts)
 -- keymap("n", "<C-f>", "<cmd>Telescope current_buffer_fuzzy_find<cr>", opts)
@@ -67,6 +65,10 @@ keymap("n", "<C-s>", "<cmd>:w<cr>", opts) -- save
 keymap("i", "<C-s>", "<Esc>:w<cr>", opts) -- save
 keymap("n", "Q", "<cmd>:bd<cr>", opts)
 keymap("n", "<leader>t", "<cmd>:ToggleTerm<cr>", opts)
+keymap("n", "<C-h>", "<C-w>h", opts)
+keymap("n", "<C-j>", "<C-w>j", opts)
+keymap("n", "<C-k>", "<C-w>k", opts)
+keymap("n", "<C-l>", "<C-w>l", opts)
 
 -- LSP Shortcut
 keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", opts)
@@ -80,6 +82,7 @@ keymap("n", "<leader>c", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
 keymap("n", "<leader>r", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
 keymap("n", "<leader>g", "<cmd>lua _LAZYGIT_TOGGLE()<cr>", opts)
 keymap("n", "<leader>t", ":ToggleTerm direction=horizontal size=20<cr>", opts)
+keymap("n", "<leader>T", ":2ToggleTerm direction=horizontal size=20<cr>", opts)
 keymap("n", "<leader>o", ":TroubleToggle<cr>", opts)
 
 -- Debugging
