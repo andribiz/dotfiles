@@ -129,6 +129,10 @@ return packer.startup(function(use)
             require('crates').setup()
         end,
     }
+    -- UML
+    use "aklt/plantuml-syntax"
+    use { "weirongxu/plantuml-previewer.vim", ft = { "plantuml" } }
+    use { "tyru/open-browser.vim", ft = { "plantuml" } }
     -- Python
     use { "mfussenegger/nvim-dap-python", ft = { "python" }, config = "require 'user.nvim-dap-python'" }
     -- Go
