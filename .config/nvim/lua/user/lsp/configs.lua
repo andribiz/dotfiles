@@ -1,12 +1,13 @@
-local status_ok, lsp_installer = pcall(require, "nvim-lsp-installer")
+local status_ok, lsp_installer = pcall(require, "mason-lspconfig")
 if not status_ok then
     return
 end
 
 local lspconfig = require("lspconfig")
 
-local servers = { "jsonls",
-    "sumneko_lua",
+local servers = {
+    "jsonls",
+    "lua_ls",
     "tsserver",
     "pyright",
     "yamlls",
@@ -24,7 +25,7 @@ local servers = { "jsonls",
     -- "sqls",
     -- "solc",
     -- "solang",
-    "solidity_ls"
+    -- "solidity_ls"
 }
 
 lsp_installer.setup {
@@ -56,9 +57,12 @@ dap.listeners.before.event_exited["dapui_config"] = function()
     dapui.close()
 end
 
-vim.api.nvim_create_autocmd("FileType", { pattern = { "javascript",
-    "javascriptreact", "javascript.jsx", "typescript",
-    "typescriptreact", "typescript.tsx" }, command = "setlocal tabstop=2 shiftwidth=2 softtabstop=2" })
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = { "javascript",
+        "javascriptreact", "javascript.jsx", "typescript",
+        "typescriptreact", "typescript.tsx" },
+    command = "setlocal tabstop=2 shiftwidth=2 softtabstop=2"
+})
 
 vim.cmd [[autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })]]
 vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
