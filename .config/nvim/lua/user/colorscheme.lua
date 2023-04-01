@@ -2,7 +2,6 @@
 vim.o.background = "dark"
 require("gruvbox").setup({
     underline = false,
-    italic = false,
     contrast = "hard",
 })
 vim.cmd "colorscheme gruvbox"
