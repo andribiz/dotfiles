@@ -22,6 +22,7 @@ local servers = {
     "cssls",
     "tailwindcss",
     "svelte",
+    "lemminx",
     -- "sqls",
     -- "solc",
     -- "solang",
