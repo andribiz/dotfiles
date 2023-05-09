@@ -117,18 +117,18 @@ cmp.setup {
             with_text = true,
             menu = {
                 nvim_lsp = "[LSP]",
+                cmp_tabnine = "[AI]",
                 luasnip = "[Snippet]",
                 buffer = "[Buffer]",
                 path = "[Path]",
-                cmp_tabnine = "[AI]",
             }
         }
     },
     sources = {
-        { name = "nvim_lsp", max_item_count = 5 },
+        { name = "nvim_lsp",   max_item_count = 5 },
         { name = "cmp_tabnine" },
         { name = "luasnip" },
-        { name = "buffer", max_item_count = 5, keyword_length = 5 },
+        { name = "buffer",     max_item_count = 5, keyword_length = 5 },
         { name = "path" },
     },
     confirm_opts = {
