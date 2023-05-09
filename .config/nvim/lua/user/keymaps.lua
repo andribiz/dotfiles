@@ -32,6 +32,8 @@ keymap("n", "<A-Right>", ":vertical resize +2<CR>", opts)
 keymap("n", "<A-k>", ":m .-2<CR>==", opts)
 keymap("n", "<A-j>", ":m .+1<CR>==", opts)
 keymap("n", "x", '"_x', opts)
+keymap("n", "ciw", '"_ciw', opts)
+keymap("n", "cw", '"_cw', opts)
 
 keymap("n", "<leader>e", ":NvimTreeToggle <CR>", opts)
 
