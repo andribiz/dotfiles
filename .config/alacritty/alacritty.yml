@@ -76,7 +76,7 @@ font:
 
   # Point size
   size: 12.5
-  use_thin_strokes: true
+  # use_thin_strokes: true
 
 mouse:
   # If this is `true`, the cursor is temporarily hidden when typing.
@@ -140,4 +140,3 @@ key_bindings:
   - { key: D, mods: Command, chars: "\x00\x64" } # detach
   # neovim specific shortcuts
   - { key: S, mods: Command, chars: "\x1b\x3a\x77\x0a" } # neovim save
-  - { key: Q, mods: Command, action: None }
