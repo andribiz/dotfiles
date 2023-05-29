@@ -23,6 +23,7 @@ local servers = {
     "tailwindcss",
     "svelte",
     "lemminx",
+    "prismals",
     "solidity"
     -- "sqls",
     -- "solc",
