@@ -82,7 +82,12 @@ keymap("n", "]d", "<cmd>lua vim.lsp.diagnostic.goto_next()<cr>", opts)
 keymap("n", "<leader>f", "<cmd>lua vim.lsp.buf.format({async=true})<cr>", opts)
 keymap("n", "<leader>c", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
 keymap("n", "<leader>r", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
-keymap("n", "<leader>g", "<cmd>lua _LAZYGIT_TOGGLE()<cr>", opts)
+-- Git
+keymap("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<cr>", opts)
+keymap("n", "<leader>gh", ":DiffviewFileHistory<cr>", opts)
+keymap("n", "<leader>gf", ":DiffviewFileHistory %<cr>", opts)
+
+-- Terminal
 keymap("n", "<leader>t", ":ToggleTerm direction=horizontal size=20<cr>", opts)
 keymap("n", "<leader>T", ":2ToggleTerm direction=horizontal size=20<cr>", opts)
 keymap("n", "<leader>o", ":TroubleToggle<cr>", opts)
