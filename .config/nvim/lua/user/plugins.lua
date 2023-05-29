@@ -105,6 +105,7 @@ return packer.startup(function(use)
     }
     use { "p00f/nvim-ts-rainbow",
     }
+    use { "petertriho/nvim-scrollbar", config = "require 'user.scrollbar' " }
     use { "JoosepAlviste/nvim-ts-context-commentstring",
         ft = { "typescript", "javascript", "typescriptreact", "javascriptreact" }
     }
