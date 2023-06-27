@@ -42,5 +42,14 @@ configs.setup {
         max_file_lines = nil, -- Do not enable for files with more than n lines, int
         -- colors = {}, -- table of hex strings
         -- termcolors = {} -- table of colour name strings
+    },
+    incremental_selection = {
+        enable = true,
+        keymaps = {
+            init_selection = "<Enter>", -- set to `false` to disable one of the mappings
+            node_incremental = "<Enter>",
+            -- scope_incremental = "<C-v>",
+            node_decremental = "<BS>",
+        },
     }
 }
