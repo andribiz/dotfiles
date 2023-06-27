@@ -16,7 +16,9 @@ null_ls.setup({
         formatting.prettier.with({
             disabled_filetypes = { "json" },
         }),
-        diagnostics.eslint,
+        diagnostics.eslint.with({
+            method = null_ls.methods.DIAGNOSTICS_ON_SAVE
+        }),
         code_actions.eslint,
         -- formatting.black.with({ extra_args = { "--fast" } }),
         -- formatting.stylua,
