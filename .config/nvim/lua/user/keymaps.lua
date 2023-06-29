@@ -59,14 +59,13 @@ keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 keymap("n", "<leader>ff", "<cmd>Telescope find_files<cr>", opts)
 -- keymap("n", "<C-f>", "<cmd>Telescope current_buffer_fuzzy_find<cr>", opts)
 -- keymap("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", opts)
-keymap("n", "<leader>fg", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>", opts)
+keymap("n", "<leader>fg",
+    ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>", opts)
 keymap("n", "<leader>fd", "<cmd>Telescope diagnostics<CR>", opts)
-
 -- my preferences
 keymap("n", "<C-s>", "<cmd>:w<cr>", opts) -- save
 keymap("i", "<C-s>", "<Esc>:w<cr>", opts) -- save
 keymap("n", "Q", "<cmd>:bd<cr>", opts)
-keymap("n", "<leader>t", "<cmd>:ToggleTerm<cr>", opts)
 keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
@@ -86,6 +85,7 @@ keymap("n", "<leader>r", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
 keymap("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<cr>", opts)
 keymap("n", "<leader>gh", ":DiffviewFileHistory<cr>", opts)
 keymap("n", "<leader>gf", ":DiffviewFileHistory %<cr>", opts)
+keymap("n", "<leader>gc", ":DiffviewClose<cr>", opts)
 
 -- Terminal
 keymap("n", "<leader>t", ":ToggleTerm direction=horizontal size=20<cr>", opts)
@@ -116,3 +116,12 @@ keymap("n", "F",
 
 -- bufferline
 keymap("n", "gt", ":BufferLinePick<CR>", opts)
+keymap("n", "<leader>1", ":BufferLineGoToBuffer 1<cr>", opts)
+keymap("n", "<leader>2", ":BufferLineGoToBuffer 2<cr>", opts)
+keymap("n", "<leader>3", ":BufferLineGoToBuffer 3<cr>", opts)
+keymap("n", "<leader>4", ":BufferLineGoToBuffer 4<cr>", opts)
+keymap("n", "<leader>5", ":BufferLineGoToBuffer 5<cr>", opts)
+keymap("n", "<leader>6", ":BufferLineGoToBuffer 6<cr>", opts)
+keymap("n", "<leader>7", ":BufferLineGoToBuffer 7<cr>", opts)
+keymap("n", "<leader>8", ":BufferLineGoToBuffer 8<cr>", opts)
+keymap("n", "<leader>9", ":BufferLineGoToBuffer 9<cr>", opts)
