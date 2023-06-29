@@ -70,6 +70,7 @@ keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
+keymap("n", "<leader>n", "<cmd>lua require('nvim-navbuddy').open()<cr>", opts)
 
 -- LSP Shortcut
 keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", opts)

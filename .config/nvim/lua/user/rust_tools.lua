@@ -12,6 +12,7 @@ local opts = {
     server = {
         on_attach = function(client, bufnr)
             require("nvim-navic").attach(client, bufnr)
+            require("nvim-navbuddy").attach(client, bufnr)
         end,
     },
     -- server = {

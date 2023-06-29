@@ -120,6 +120,14 @@ return packer.startup(function(use)
         requires = "neovim/nvim-lspconfig",
         -- config = "require 'user.nvic'"
     }
+    use {
+        "SmiteshP/nvim-navbuddy",
+        requires = {
+            "neovim/nvim-lspconfig",
+            "SmiteshP/nvim-navic",
+            "MunifTanjim/nui.nvim",
+            "nvim-telescope/telescope.nvim" -- Optional
+        } }
     -- Git
     use "lewis6991/gitsigns.nvim"
     -- debug

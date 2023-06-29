@@ -218,6 +218,11 @@ _G.packer_plugins = {
     path = "/Users/andrix/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
+  ["nui.nvim"] = {
+    loaded = true,
+    path = "/Users/andrix/.local/share/nvim/site/pack/packer/start/nui.nvim",
+    url = "https://github.com/MunifTanjim/nui.nvim"
+  },
   ["null-ls.nvim"] = {
     loaded = true,
     path = "/Users/andrix/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
@@ -268,6 +273,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/andrix/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
+  },
+  ["nvim-navbuddy"] = {
+    loaded = true,
+    path = "/Users/andrix/.local/share/nvim/site/pack/packer/start/nvim-navbuddy",
+    url = "https://github.com/SmiteshP/nvim-navbuddy"
   },
   ["nvim-navic"] = {
     loaded = true,
@@ -416,48 +426,48 @@ time([[Defining packer_plugins]], false)
 time([[Setup for markdown-preview.nvim]], true)
 try_loadstring("\27LJ\2\n=\0\0\2\0\4\0\0056\0\0\0009\0\1\0005\1\3\0=\1\2\0K\0\1\0\1\2\0\0\rmarkdown\19mkdp_filetypes\6g\bvim\0", "setup", "markdown-preview.nvim")
 time([[Setup for markdown-preview.nvim]], false)
--- Config for: hop.nvim
-time([[Config for hop.nvim]], true)
-require 'user.hop'
-time([[Config for hop.nvim]], false)
--- Config for: nvim-treesitter
-time([[Config for nvim-treesitter]], true)
-require 'user.treesitter' 
-time([[Config for nvim-treesitter]], false)
--- Config for: nvim-scrollbar
-time([[Config for nvim-scrollbar]], true)
-require 'user.scrollbar' 
-time([[Config for nvim-scrollbar]], false)
--- Config for: nvim-tree.lua
-time([[Config for nvim-tree.lua]], true)
-require 'user.nvim-tree'
-time([[Config for nvim-tree.lua]], false)
 -- Config for: dashboard-nvim
 time([[Config for dashboard-nvim]], true)
 require 'user.dashboard'
 time([[Config for dashboard-nvim]], false)
+-- Config for: nvim-treesitter
+time([[Config for nvim-treesitter]], true)
+require 'user.treesitter' 
+time([[Config for nvim-treesitter]], false)
+-- Config for: hop.nvim
+time([[Config for hop.nvim]], true)
+require 'user.hop'
+time([[Config for hop.nvim]], false)
+-- Config for: nvim-tree.lua
+time([[Config for nvim-tree.lua]], true)
+require 'user.nvim-tree'
+time([[Config for nvim-tree.lua]], false)
+-- Config for: nvim-scrollbar
+time([[Config for nvim-scrollbar]], true)
+require 'user.scrollbar' 
+time([[Config for nvim-scrollbar]], false)
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
 time([[Defining lazy-load filetype autocommands]], true)
-vim.cmd [[au FileType rust ++once lua require("packer.load")({'rust-tools.nvim'}, { ft = "rust" }, _G.packer_plugins)]]
-vim.cmd [[au FileType solidity ++once lua require("packer.load")({'vim-solidity'}, { ft = "solidity" }, _G.packer_plugins)]]
 vim.cmd [[au FileType markdown ++once lua require("packer.load")({'markdown-preview.nvim'}, { ft = "markdown" }, _G.packer_plugins)]]
-vim.cmd [[au FileType javascript ++once lua require("packer.load")({'nvim-ts-autotag', 'nvim-ts-context-commentstring'}, { ft = "javascript" }, _G.packer_plugins)]]
+vim.cmd [[au FileType typescriptreact ++once lua require("packer.load")({'nvim-ts-context-commentstring', 'nvim-ts-autotag'}, { ft = "typescriptreact" }, _G.packer_plugins)]]
 vim.cmd [[au FileType kdl ++once lua require("packer.load")({'kdl.vim'}, { ft = "kdl" }, _G.packer_plugins)]]
-vim.cmd [[au FileType javascriptreact ++once lua require("packer.load")({'nvim-ts-autotag', 'nvim-ts-context-commentstring'}, { ft = "javascriptreact" }, _G.packer_plugins)]]
 vim.cmd [[au FileType plantuml ++once lua require("packer.load")({'open-browser.vim', 'plantuml-previewer.vim'}, { ft = "plantuml" }, _G.packer_plugins)]]
 vim.cmd [[au FileType python ++once lua require("packer.load")({'nvim-dap-python'}, { ft = "python" }, _G.packer_plugins)]]
-vim.cmd [[au FileType typescriptreact ++once lua require("packer.load")({'nvim-ts-autotag', 'nvim-ts-context-commentstring'}, { ft = "typescriptreact" }, _G.packer_plugins)]]
+vim.cmd [[au FileType javascriptreact ++once lua require("packer.load")({'nvim-ts-context-commentstring', 'nvim-ts-autotag'}, { ft = "javascriptreact" }, _G.packer_plugins)]]
 vim.cmd [[au FileType go ++once lua require("packer.load")({'nvim-dap-go'}, { ft = "go" }, _G.packer_plugins)]]
-vim.cmd [[au FileType typescript ++once lua require("packer.load")({'nvim-ts-autotag', 'nvim-ts-context-commentstring'}, { ft = "typescript" }, _G.packer_plugins)]]
+vim.cmd [[au FileType javascript ++once lua require("packer.load")({'nvim-ts-context-commentstring', 'nvim-ts-autotag'}, { ft = "javascript" }, _G.packer_plugins)]]
+vim.cmd [[au FileType rust ++once lua require("packer.load")({'rust-tools.nvim'}, { ft = "rust" }, _G.packer_plugins)]]
+vim.cmd [[au FileType solidity ++once lua require("packer.load")({'vim-solidity'}, { ft = "solidity" }, _G.packer_plugins)]]
+vim.cmd [[au FileType typescript ++once lua require("packer.load")({'nvim-ts-context-commentstring', 'nvim-ts-autotag'}, { ft = "typescript" }, _G.packer_plugins)]]
 time([[Defining lazy-load filetype autocommands]], false)
   -- Event lazy-loads
 time([[Defining lazy-load event autocommands]], true)
 vim.cmd [[au bufWinEnter * ++once lua require("packer.load")({'bufferline.nvim'}, { event = "bufWinEnter *" }, _G.packer_plugins)]]
-vim.cmd [[au BufRead * ++once lua require("packer.load")({'indent-blankline.nvim'}, { event = "BufRead *" }, _G.packer_plugins)]]
-vim.cmd [[au BufWinEnter * ++once lua require("packer.load")({'lualine.nvim'}, { event = "BufWinEnter *" }, _G.packer_plugins)]]
 vim.cmd [[au BufRead Cargo.toml ++once lua require("packer.load")({'crates.nvim'}, { event = "BufRead Cargo.toml" }, _G.packer_plugins)]]
+vim.cmd [[au BufWinEnter * ++once lua require("packer.load")({'lualine.nvim'}, { event = "BufWinEnter *" }, _G.packer_plugins)]]
+vim.cmd [[au BufRead * ++once lua require("packer.load")({'indent-blankline.nvim'}, { event = "BufRead *" }, _G.packer_plugins)]]
 time([[Defining lazy-load event autocommands]], false)
 vim.cmd("augroup END")
 vim.cmd [[augroup filetypedetect]]
