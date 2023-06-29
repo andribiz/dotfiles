@@ -85,11 +85,15 @@ M.on_attach = function(client, bufnr)
     if client.name == "tsserver" then
         client.resolved_capabilities.document_formatting = false
     end
+    if client.server_capabilities.documentSymbolProvider then
+        require("nvim-navic").attach(client, bufnr)
+    end
     lsp_keymaps(bufnr)
     lsp_highlight_document(client)
     -- lsp signature thing
-    require "lsp_signature".on_attach({
+    require("lsp_signature").on_attach({
         bind = true, -- This is mandatory, otherwise border config won't get registered.
+        always_trigger = false,
         handler_opts = {
             border = "rounded"
         }
