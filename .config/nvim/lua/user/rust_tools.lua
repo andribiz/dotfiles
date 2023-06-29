@@ -8,6 +8,16 @@ local opts = {
     dap = {
         adapter = require('rust-tools.dap').get_codelldb_adapter(
             codelldb_path, liblldb_path)
-    }
+    },
+    server = {
+        on_attach = function(client, bufnr)
+            require("nvim-navic").attach(client, bufnr)
+        end,
+    },
+    -- server = {
+    --     -- standalone file support
+    --     -- setting it to false may improve startup time
+    --     standalone = false,
+    -- }
 }
 require("rust-tools").setup(opts)
