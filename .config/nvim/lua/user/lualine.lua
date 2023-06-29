@@ -16,8 +16,8 @@ local diagnostics = {
     diagnostics_color = {
         -- Same values as the general color option can be used here.
         error = 'DiagnosticError', -- Changes diagnostics' error color.
-        warn  = 'DiagnosticWarn', -- Changes diagnostics' warn color.
-        info  = 'DiagnosticInfo', -- Changes diagnostics' info color.
+        warn  = 'DiagnosticWarn',  -- Changes diagnostics' warn color.
+        info  = 'DiagnosticInfo',  -- Changes diagnostics' info color.
     },
     colored = false,
     update_in_insert = false,
@@ -59,8 +59,8 @@ local filename = {
     "filename",
     path = 1,
     symbols = {
-        modified = '[+]', -- Text to show when the file is modified.
-        readonly = '[-]', -- Text to show when the file is non-modifiable or readonly.
+        modified = '[+]',      -- Text to show when the file is modified.
+        readonly = '[-]',      -- Text to show when the file is non-modifiable or readonly.
         unnamed = '[No Name]', -- Text to show for unnamed buffers.
     },
     color = { fg = '#ffffff' },
@@ -128,4 +128,11 @@ lualine.setup({
     },
     tabline = {},
     extensions = {},
+    winbar = {
+        lualine_c = {
+            "navic",
+            color_correction = nil,
+            navic_opts = nil
+        }
+    }
 })
