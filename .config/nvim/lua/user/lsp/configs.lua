@@ -12,7 +12,7 @@ local servers = {
     "pyright",
     "yamlls",
     "graphql",
-    "rust_analyzer",
+    -- "rust_analyzer",
     "gopls",
     "marksman",
     "taplo",
