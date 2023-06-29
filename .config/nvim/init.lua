@@ -21,3 +21,5 @@ require "fidget".setup {}
 require "nvim-surround".setup({})
 -- require "user.nvim-ts-autotag"
 require "user.lsp_signature"
+require "user.filetypes"
+require "user.navic"

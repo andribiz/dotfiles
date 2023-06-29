@@ -84,7 +84,7 @@ return packer.startup(function(use)
     -- use "jose-elias-alvarez/nvim-lsp-ts-utils"
     -- use "nvim-lua/lsp_extensions.nvim" -- for inlay hint diagnostic
     use { "tomlion/vim-solidity", ft = { "solidity" } }
-    use "j-hui/fidget.nvim" -- Lsp Progress
+    use { "j-hui/fidget.nvim", tag = 'legacy' } -- Lsp Progress
     use "ray-x/lsp_signature.nvim"
     -- Telescope
     use { "nvim-telescope/telescope.nvim", requires = {
@@ -114,6 +114,12 @@ return packer.startup(function(use)
         config = "require 'user.nvim-ts-autotag'",
         ft = { "typescript", "javascript", "typescriptreact", "javascriptreact" }
     } -- Autotag for tsx
+    -- use('Bekaboo/dropbar.nvim')
+    use {
+        "SmiteshP/nvim-navic",
+        requires = "neovim/nvim-lspconfig",
+        -- config = "require 'user.nvic'"
+    }
     -- Git
     use "lewis6991/gitsigns.nvim"
     -- debug
