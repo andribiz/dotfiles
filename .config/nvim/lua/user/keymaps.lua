@@ -31,9 +31,12 @@ keymap("n", "<A-Right>", ":vertical resize +2<CR>", opts)
 -- Move text up and down
 keymap("n", "<A-k>", ":m .-2<CR>==", opts)
 keymap("n", "<A-j>", ":m .+1<CR>==", opts)
-keymap("n", "x", '"_x', opts)
-keymap("n", "ciw", '"_ciw', opts)
-keymap("n", "cw", '"_cw', opts)
+-- keymap("n", "x", '"_x', opts)
+-- keymap("n", "ciw", '"_ciw', opts)
+-- keymap("n", "cw", '"_cw', opts)
+keymap("n", "<c-p>", '"0p', opts)
+keymap("n", "<c-P>", '"0P', opts)
+
 
 keymap("n", "<leader>e", ":NvimTreeToggle <CR>", opts)
 
@@ -42,7 +45,6 @@ keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
 
 -- Visual --
--- Stay in indent mode
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 
