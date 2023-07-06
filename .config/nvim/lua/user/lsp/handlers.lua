@@ -79,13 +79,24 @@ local function lsp_keymaps(bufnr)
     vim.cmd [[ command! Format execute 'lua vim.lsp.buf.format({async=true})' ]]
 end
 
+local function has_navic(val)
+    tab = { "rust_analyzer", "gopls", "pyright", "solidity" }
+    for _, value in ipairs(tab) do
+        if value == val then
+            return true
+        end
+    end
+
+    return false
+end
+
 M.on_attach = function(client, bufnr)
     -- vim.notify(client.name .. " starting...")
     -- TODO: refactor this into a method that checks if string in list
     if client.name == "tsserver" then
         client.resolved_capabilities.document_formatting = false
     end
-    if client.server_capabilities.documentSymbolProvider then
+    if client.server_capabilities.documentSymbolProvider and has_navic(client.name) then
         require("nvim-navic").attach(client, bufnr)
         require("nvim-navbuddy").attach(client, bufnr)
     end
