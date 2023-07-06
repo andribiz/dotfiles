@@ -55,6 +55,10 @@ local location = {
     padding = 0,
 }
 
+local function empty()
+    return [[ ]]
+end
+
 local filename = {
     "filename",
     path = 1,
@@ -67,9 +71,9 @@ local filename = {
 }
 
 local lspname = {
-    -- Lsp server name .
+    -- lsp server name .
     function()
-        local msg = 'No Active Lsp'
+        local msg = 'no active lsp'
         local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
         local clients = vim.lsp.get_active_clients()
         if next(clients) == nil then
@@ -83,7 +87,7 @@ local lspname = {
         end
         return msg
     end,
-    icon = ' LSP:',
+    icon = ' lsp:',
 }
 
 -- cool function for progress
@@ -106,7 +110,7 @@ lualine.setup({
         theme = "auto",
         component_separators = { left = "", right = "" },
         section_separators = { left = "", right = "" },
-        disabled_filetypes = { "alpha", "dashboard", "NvimTree", "Outline" },
+        disabled_filetypes = { "alpha", "dashboard", "NvimTree", "Outline", "toggleterm" },
         always_divide_middle = true,
     },
     sections = {
@@ -130,9 +134,18 @@ lualine.setup({
     extensions = {},
     winbar = {
         lualine_c = {
+            empty,
             "navic",
             color_correction = nil,
-            navic_opts = nil
+            navic_opts = nil,
         }
+    },
+    inactive_winbar = {
+        lualine_a = {},
+        lualine_b = {},
+        lualine_c = { empty },
+        lualine_x = {},
+        lualine_y = {},
+        lualine_z = {}
     }
 })
