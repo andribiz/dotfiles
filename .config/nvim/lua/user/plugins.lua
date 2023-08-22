@@ -50,8 +50,8 @@ return packer.startup(function(use)
     -- use "moll/vim-bbye"
     use "akinsho/toggleterm.nvim"
     use "RRethy/vim-illuminate"
-    use "ahmedkhalf/project.nvim" --Temp disabled
-    use { "glepnir/dashboard-nvim", config = "require 'user.dashboard'" }
+    -- use "ahmedkhalf/project.nvim" --Temp disabled
+    -- use { "glepnir/dashboard-nvim", config = "require 'user.dashboard'" }
     -- use "goolord/alpha-nvim"
     use { "lukas-reineke/indent-blankline.nvim", event = "BufRead", config = "require 'user.indent-blankline'" }
     use "kylechui/nvim-surround"
@@ -103,7 +103,7 @@ return packer.startup(function(use)
         run = ":TSUpdate",
         config = "require 'user.treesitter' "
     }
-    use { "p00f/nvim-ts-rainbow",
+    use { "HiPhish/rainbow-delimiters.nvim", config = "require 'user.rainbow'"
     }
     use { "petertriho/nvim-scrollbar", config = "require 'user.scrollbar' " }
     use { "JoosepAlviste/nvim-ts-context-commentstring",
@@ -148,7 +148,7 @@ return packer.startup(function(use)
     -- git
     use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
     -- UML
-    use "aklt/plantuml-syntax"
+    use { "aklt/plantuml-syntax", ft = { "plantuml" } }
     use { "weirongxu/plantuml-previewer.vim", ft = { "plantuml" } }
     use { "tyru/open-browser.vim", ft = { "plantuml" } }
     -- Python
