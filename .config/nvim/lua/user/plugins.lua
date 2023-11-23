@@ -118,7 +118,7 @@ return packer.startup(function(use)
     use {
         "SmiteshP/nvim-navic",
         requires = "neovim/nvim-lspconfig",
-        -- config = "require 'user.nvic'"
+        -- config = "require 'user.navic'"
     }
     use {
         "SmiteshP/nvim-navbuddy",
