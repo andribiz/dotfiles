@@ -53,7 +53,7 @@ return packer.startup(function(use)
     -- use "ahmedkhalf/project.nvim" --Temp disabled
     -- use { "glepnir/dashboard-nvim", config = "require 'user.dashboard'" }
     -- use "goolord/alpha-nvim"
-    use { "lukas-reineke/indent-blankline.nvim", event = "BufRead", config = "require 'user.indent-blankline'" }
+    use { "lukas-reineke/indent-blankline.nvim", config = "require 'user.indent-blankline'" }
     use "kylechui/nvim-surround"
     use {
         'phaazon/hop.nvim',
