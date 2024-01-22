@@ -16,6 +16,7 @@ require "user.autopairs"
 require "user.dapui"
 require "user.nvim-dapp-virtual-text"
 require "user.cmp-tabnine"
+require "user.chatgpt"
 
 require "fidget".setup {}
 require "nvim-surround".setup({})
