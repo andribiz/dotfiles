@@ -4,9 +4,9 @@ local M = {}
 M.setup = function()
     local signs = {
         { name = "DiagnosticSignError", text = "" },
-        { name = "DiagnosticSignWarn",  text = "" },
-        { name = "DiagnosticSignHint",  text = "" },
-        { name = "DiagnosticSignInfo",  text = "" },
+        { name = "DiagnosticSignWarn", text = "" },
+        { name = "DiagnosticSignHint", text = "" },
+        { name = "DiagnosticSignInfo", text = "" },
     }
 
     for _, sign in ipairs(signs) do
@@ -21,7 +21,7 @@ M.setup = function()
         signs = {
             active = signs,
         },
-        update_in_insert = true,
+        update_in_insert = false,
         underline = true,
         severity_sort = true,
         float = {
@@ -67,6 +67,9 @@ local function lsp_keymaps(bufnr)
     -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
     -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>f", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', opts)
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "<C-x>",
+        '<cmd>vim.lsp.buf.execute_command({command = "_typescript.organizeImports", arguments = {vim.fn.expand("%:p")}})<CR>',
+        opts)
     vim.api.nvim_buf_set_keymap(
         bufnr,
         "n",
@@ -80,7 +83,7 @@ local function lsp_keymaps(bufnr)
 end
 
 local function has_navic(val)
-    tab = { "rust_analyzer", "gopls", "pyright", "solidity" }
+    local tab = { "rust_analyzer", "gopls", "pyright", "solidity" }
     for _, value in ipairs(tab) do
         if value == val then
             return true
@@ -94,6 +97,7 @@ M.on_attach = function(client, bufnr)
     -- vim.notify(client.name .. " starting...")
     -- TODO: refactor this into a method that checks if string in list
     if client.name == "tsserver" then
+        vim.print(client)
         client.resolved_capabilities.document_formatting = false
     end
     if client.server_capabilities.documentSymbolProvider and has_navic(client.name) then

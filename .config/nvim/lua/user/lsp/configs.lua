@@ -8,7 +8,7 @@ local lspconfig = require("lspconfig")
 local servers = {
     "jsonls",
     "lua_ls",
-    "tsserver",
+    -- "tsserver",
     "pyright",
     "yamlls",
     "graphql",
@@ -16,7 +16,6 @@ local servers = {
     "gopls",
     "marksman",
     "taplo",
-    "jsonls",
     "clangd",
     "dockerls",
     "cssls",

@@ -106,14 +106,25 @@ return packer.startup(function(use)
     use { "HiPhish/rainbow-delimiters.nvim", config = "require 'user.rainbow'"
     }
     use { "petertriho/nvim-scrollbar", config = "require 'user.scrollbar' " }
+    -- Typescript
     use { "JoosepAlviste/nvim-ts-context-commentstring",
         ft = { "typescript", "javascript", "typescriptreact", "javascriptreact" }
     }
-    use { "windwp/nvim-autopairs" } -- Autopairs, integrates with both cmp and treesitter
+    use {
+        "pmizio/typescript-tools.nvim",
+        requires = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+        -- config = "require(user.typescript-tools)",
+        config = function()
+            require("typescript-tools").setup {}
+        end,
+        ft = { "typescript", "javascript", "typescriptreact", "javascriptreact" }
+    }
+
     use { "windwp/nvim-ts-autotag", after = "nvim-treesitter",
         config = "require 'user.nvim-ts-autotag'",
         ft = { "typescript", "javascript", "typescriptreact", "javascriptreact" }
-    } -- Autotag for tsx
+    }                               -- Autotag for tsx
+    use { "windwp/nvim-autopairs" } -- Autopairs, integrates with both cmp and treesitter
     -- use('Bekaboo/dropbar.nvim')
     use {
         "SmiteshP/nvim-navic",
@@ -128,6 +139,19 @@ return packer.startup(function(use)
             "MunifTanjim/nui.nvim",
             "nvim-telescope/telescope.nvim" -- Optional
         } }
+    -- chatgpt
+    use({
+        "jackMort/ChatGPT.nvim",
+        config = function()
+            require("chatgpt").setup()
+        end,
+        requires = {
+            "MunifTanjim/nui.nvim",
+            "nvim-lua/plenary.nvim",
+            "nvim-telescope/telescope.nvim"
+        }
+    })
+
     -- Git
     use "lewis6991/gitsigns.nvim"
     -- debug
