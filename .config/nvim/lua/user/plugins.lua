@@ -156,11 +156,14 @@ return packer.startup(function(use)
     use "lewis6991/gitsigns.nvim"
     -- debug
     use "mfussenegger/nvim-dap"
-    use "rcarriga/nvim-dap-ui"
+    use {
+        "rcarriga/nvim-dap-ui",
+        requires = { "nvim-neotest/nvim-nio" },
+    }
     use "theHamsta/nvim-dap-virtual-text"
     -- use { "folke/trouble.nvim", cmd = "TroubleToggle", config = "require 'trouble'.setup {}" }
     -- Rust
-    use { "simrat39/rust-tools.nvim", ft = { "rust" }, config = "require 'user.rust_tools'" } -- for rust enhancement
+    use { "mrcjkb/rustaceanvim", ft = { "rust" }, config = "require 'user.rust_tools'" } -- for rust enhancement
     use {
         'saecki/crates.nvim',
         event = { "BufRead Cargo.toml" },

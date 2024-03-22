@@ -3,11 +3,11 @@ local extension_path = '/Users/andrix/.vscode/extensions/vadimcn.vscode-lldb-1.8
 local codelldb_path = extension_path .. 'adapter/codelldb'
 local liblldb_path = extension_path .. 'lldb/lib/liblldb.dylib'
 
-local opts = {
+vim.g.rustaceanvim = {
     -- ... other configs
     dap = {
-        adapter = require('rust-tools.dap').get_codelldb_adapter(
-            codelldb_path, liblldb_path)
+        -- adapter = require('rust-tools.dap').get_codelldb_adapter(
+        --     codelldb_path, liblldb_path)
     },
     server = {
         on_attach = function(client, bufnr)
@@ -21,4 +21,3 @@ local opts = {
     --     standalone = false,
     -- }
 }
-require("rust-tools").setup(opts)
