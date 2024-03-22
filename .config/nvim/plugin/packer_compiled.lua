@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/Users/andrix/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?.lua;/Users/andrix/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?/init.lua;/Users/andrix/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?.lua;/Users/andrix/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/Users/andrix/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/lua/5.1/?.so"
+local package_path_str = "/Users/andrix/.cache/nvim/packer_hererocks/2.1.1703358377/share/lua/5.1/?.lua;/Users/andrix/.cache/nvim/packer_hererocks/2.1.1703358377/share/lua/5.1/?/init.lua;/Users/andrix/.cache/nvim/packer_hererocks/2.1.1703358377/lib/luarocks/rocks-5.1/?.lua;/Users/andrix/.cache/nvim/packer_hererocks/2.1.1703358377/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/Users/andrix/.cache/nvim/packer_hererocks/2.1.1703358377/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -74,6 +74,12 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["ChatGPT.nvim"] = {
+    config = { "\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\fchatgpt\frequire\0" },
+    loaded = true,
+    path = "/Users/andrix/.local/share/nvim/site/pack/packer/start/ChatGPT.nvim",
+    url = "https://github.com/jackMort/ChatGPT.nvim"
+  },
   ["Comment.nvim"] = {
     loaded = true,
     path = "/Users/andrix/.local/share/nvim/site/pack/packer/start/Comment.nvim",
@@ -123,19 +129,12 @@ _G.packer_plugins = {
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
   ["crates.nvim"] = {
-    after_files = { "/Users/andrix/.local/share/nvim/site/pack/packer/opt/crates.nvim/after/plugin/cmp_crates.lua" },
     config = { "\27LJ\2\n4\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\vcrates\frequire\0" },
     loaded = false,
     needs_bufread = false,
     only_cond = false,
     path = "/Users/andrix/.local/share/nvim/site/pack/packer/opt/crates.nvim",
     url = "https://github.com/saecki/crates.nvim"
-  },
-  ["dashboard-nvim"] = {
-    config = { "require 'user.dashboard'" },
-    loaded = true,
-    path = "/Users/andrix/.local/share/nvim/site/pack/packer/start/dashboard-nvim",
-    url = "https://github.com/glepnir/dashboard-nvim"
   },
   ["diffview.nvim"] = {
     loaded = true,
@@ -170,10 +169,8 @@ _G.packer_plugins = {
   },
   ["indent-blankline.nvim"] = {
     config = { "require 'user.indent-blankline'" },
-    loaded = false,
-    needs_bufread = false,
-    only_cond = false,
-    path = "/Users/andrix/.local/share/nvim/site/pack/packer/opt/indent-blankline.nvim",
+    loaded = true,
+    path = "/Users/andrix/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
     url = "https://github.com/lukas-reineke/indent-blankline.nvim"
   },
   ["kdl.vim"] = {
@@ -284,6 +281,11 @@ _G.packer_plugins = {
     path = "/Users/andrix/.local/share/nvim/site/pack/packer/start/nvim-navic",
     url = "https://github.com/SmiteshP/nvim-navic"
   },
+  ["nvim-nio"] = {
+    loaded = true,
+    path = "/Users/andrix/.local/share/nvim/site/pack/packer/start/nvim-nio",
+    url = "https://github.com/nvim-neotest/nvim-nio"
+  },
   ["nvim-scrollbar"] = {
     config = { "require 'user.scrollbar' " },
     loaded = true,
@@ -299,7 +301,7 @@ _G.packer_plugins = {
     config = { "require 'user.nvim-tree'" },
     loaded = true,
     path = "/Users/andrix/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
-    url = "https://github.com/kyazdani42/nvim-tree.lua"
+    url = "https://github.com/nvim-tree/nvim-tree.lua"
   },
   ["nvim-treesitter"] = {
     after = { "nvim-ts-autotag" },
@@ -324,11 +326,6 @@ _G.packer_plugins = {
     only_cond = false,
     path = "/Users/andrix/.local/share/nvim/site/pack/packer/opt/nvim-ts-context-commentstring",
     url = "https://github.com/JoosepAlviste/nvim-ts-context-commentstring"
-  },
-  ["nvim-ts-rainbow"] = {
-    loaded = true,
-    path = "/Users/andrix/.local/share/nvim/site/pack/packer/start/nvim-ts-rainbow",
-    url = "https://github.com/p00f/nvim-ts-rainbow"
   },
   ["nvim-web-devicons"] = {
     loaded = true,
@@ -355,8 +352,10 @@ _G.packer_plugins = {
     url = "https://github.com/weirongxu/plantuml-previewer.vim"
   },
   ["plantuml-syntax"] = {
-    loaded = true,
-    path = "/Users/andrix/.local/share/nvim/site/pack/packer/start/plantuml-syntax",
+    loaded = false,
+    needs_bufread = true,
+    only_cond = false,
+    path = "/Users/andrix/.local/share/nvim/site/pack/packer/opt/plantuml-syntax",
     url = "https://github.com/aklt/plantuml-syntax"
   },
   ["plenary.nvim"] = {
@@ -369,18 +368,19 @@ _G.packer_plugins = {
     path = "/Users/andrix/.local/share/nvim/site/pack/packer/start/popup.nvim",
     url = "https://github.com/nvim-lua/popup.nvim"
   },
-  ["project.nvim"] = {
+  ["rainbow-delimiters.nvim"] = {
+    config = { "require 'user.rainbow'" },
     loaded = true,
-    path = "/Users/andrix/.local/share/nvim/site/pack/packer/start/project.nvim",
-    url = "https://github.com/ahmedkhalf/project.nvim"
+    path = "/Users/andrix/.local/share/nvim/site/pack/packer/start/rainbow-delimiters.nvim",
+    url = "https://github.com/HiPhish/rainbow-delimiters.nvim"
   },
-  ["rust-tools.nvim"] = {
+  rustaceanvim = {
     config = { "require 'user.rust_tools'" },
     loaded = false,
     needs_bufread = true,
     only_cond = false,
-    path = "/Users/andrix/.local/share/nvim/site/pack/packer/opt/rust-tools.nvim",
-    url = "https://github.com/simrat39/rust-tools.nvim"
+    path = "/Users/andrix/.local/share/nvim/site/pack/packer/opt/rustaceanvim",
+    url = "https://github.com/mrcjkb/rustaceanvim"
   },
   ["telescope-dap.nvim"] = {
     loaded = true,
@@ -407,6 +407,14 @@ _G.packer_plugins = {
     path = "/Users/andrix/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
     url = "https://github.com/akinsho/toggleterm.nvim"
   },
+  ["typescript-tools.nvim"] = {
+    config = { "\27LJ\2\nB\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\21typescript-tools\frequire\0" },
+    loaded = false,
+    needs_bufread = true,
+    only_cond = false,
+    path = "/Users/andrix/.local/share/nvim/site/pack/packer/opt/typescript-tools.nvim",
+    url = "https://github.com/pmizio/typescript-tools.nvim"
+  },
   ["vim-illuminate"] = {
     loaded = true,
     path = "/Users/andrix/.local/share/nvim/site/pack/packer/start/vim-illuminate",
@@ -426,14 +434,14 @@ time([[Defining packer_plugins]], false)
 time([[Setup for markdown-preview.nvim]], true)
 try_loadstring("\27LJ\2\n=\0\0\2\0\4\0\0056\0\0\0009\0\1\0005\1\3\0=\1\2\0K\0\1\0\1\2\0\0\rmarkdown\19mkdp_filetypes\6g\bvim\0", "setup", "markdown-preview.nvim")
 time([[Setup for markdown-preview.nvim]], false)
--- Config for: dashboard-nvim
-time([[Config for dashboard-nvim]], true)
-require 'user.dashboard'
-time([[Config for dashboard-nvim]], false)
 -- Config for: nvim-treesitter
 time([[Config for nvim-treesitter]], true)
 require 'user.treesitter' 
 time([[Config for nvim-treesitter]], false)
+-- Config for: ChatGPT.nvim
+time([[Config for ChatGPT.nvim]], true)
+try_loadstring("\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\fchatgpt\frequire\0", "config", "ChatGPT.nvim")
+time([[Config for ChatGPT.nvim]], false)
 -- Config for: hop.nvim
 time([[Config for hop.nvim]], true)
 require 'user.hop'
@@ -442,6 +450,14 @@ time([[Config for hop.nvim]], false)
 time([[Config for nvim-tree.lua]], true)
 require 'user.nvim-tree'
 time([[Config for nvim-tree.lua]], false)
+-- Config for: rainbow-delimiters.nvim
+time([[Config for rainbow-delimiters.nvim]], true)
+require 'user.rainbow'
+time([[Config for rainbow-delimiters.nvim]], false)
+-- Config for: indent-blankline.nvim
+time([[Config for indent-blankline.nvim]], true)
+require 'user.indent-blankline'
+time([[Config for indent-blankline.nvim]], false)
 -- Config for: nvim-scrollbar
 time([[Config for nvim-scrollbar]], true)
 require 'user.scrollbar' 
@@ -450,27 +466,29 @@ vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
 time([[Defining lazy-load filetype autocommands]], true)
-vim.cmd [[au FileType markdown ++once lua require("packer.load")({'markdown-preview.nvim'}, { ft = "markdown" }, _G.packer_plugins)]]
-vim.cmd [[au FileType typescriptreact ++once lua require("packer.load")({'nvim-ts-context-commentstring', 'nvim-ts-autotag'}, { ft = "typescriptreact" }, _G.packer_plugins)]]
-vim.cmd [[au FileType kdl ++once lua require("packer.load")({'kdl.vim'}, { ft = "kdl" }, _G.packer_plugins)]]
-vim.cmd [[au FileType plantuml ++once lua require("packer.load")({'open-browser.vim', 'plantuml-previewer.vim'}, { ft = "plantuml" }, _G.packer_plugins)]]
-vim.cmd [[au FileType python ++once lua require("packer.load")({'nvim-dap-python'}, { ft = "python" }, _G.packer_plugins)]]
-vim.cmd [[au FileType javascriptreact ++once lua require("packer.load")({'nvim-ts-context-commentstring', 'nvim-ts-autotag'}, { ft = "javascriptreact" }, _G.packer_plugins)]]
+vim.cmd [[au FileType typescript ++once lua require("packer.load")({'nvim-ts-context-commentstring', 'nvim-ts-autotag', 'typescript-tools.nvim'}, { ft = "typescript" }, _G.packer_plugins)]]
+vim.cmd [[au FileType javascript ++once lua require("packer.load")({'nvim-ts-context-commentstring', 'nvim-ts-autotag', 'typescript-tools.nvim'}, { ft = "javascript" }, _G.packer_plugins)]]
+vim.cmd [[au FileType typescriptreact ++once lua require("packer.load")({'nvim-ts-context-commentstring', 'nvim-ts-autotag', 'typescript-tools.nvim'}, { ft = "typescriptreact" }, _G.packer_plugins)]]
+vim.cmd [[au FileType javascriptreact ++once lua require("packer.load")({'nvim-ts-context-commentstring', 'nvim-ts-autotag', 'typescript-tools.nvim'}, { ft = "javascriptreact" }, _G.packer_plugins)]]
+vim.cmd [[au FileType plantuml ++once lua require("packer.load")({'open-browser.vim', 'plantuml-syntax', 'plantuml-previewer.vim'}, { ft = "plantuml" }, _G.packer_plugins)]]
 vim.cmd [[au FileType go ++once lua require("packer.load")({'nvim-dap-go'}, { ft = "go" }, _G.packer_plugins)]]
-vim.cmd [[au FileType javascript ++once lua require("packer.load")({'nvim-ts-context-commentstring', 'nvim-ts-autotag'}, { ft = "javascript" }, _G.packer_plugins)]]
-vim.cmd [[au FileType rust ++once lua require("packer.load")({'rust-tools.nvim'}, { ft = "rust" }, _G.packer_plugins)]]
+vim.cmd [[au FileType python ++once lua require("packer.load")({'nvim-dap-python'}, { ft = "python" }, _G.packer_plugins)]]
+vim.cmd [[au FileType rust ++once lua require("packer.load")({'rustaceanvim'}, { ft = "rust" }, _G.packer_plugins)]]
+vim.cmd [[au FileType markdown ++once lua require("packer.load")({'markdown-preview.nvim'}, { ft = "markdown" }, _G.packer_plugins)]]
 vim.cmd [[au FileType solidity ++once lua require("packer.load")({'vim-solidity'}, { ft = "solidity" }, _G.packer_plugins)]]
-vim.cmd [[au FileType typescript ++once lua require("packer.load")({'nvim-ts-context-commentstring', 'nvim-ts-autotag'}, { ft = "typescript" }, _G.packer_plugins)]]
+vim.cmd [[au FileType kdl ++once lua require("packer.load")({'kdl.vim'}, { ft = "kdl" }, _G.packer_plugins)]]
 time([[Defining lazy-load filetype autocommands]], false)
   -- Event lazy-loads
 time([[Defining lazy-load event autocommands]], true)
-vim.cmd [[au bufWinEnter * ++once lua require("packer.load")({'bufferline.nvim'}, { event = "bufWinEnter *" }, _G.packer_plugins)]]
 vim.cmd [[au BufRead Cargo.toml ++once lua require("packer.load")({'crates.nvim'}, { event = "BufRead Cargo.toml" }, _G.packer_plugins)]]
+vim.cmd [[au bufWinEnter * ++once lua require("packer.load")({'bufferline.nvim'}, { event = "bufWinEnter *" }, _G.packer_plugins)]]
 vim.cmd [[au BufWinEnter * ++once lua require("packer.load")({'lualine.nvim'}, { event = "BufWinEnter *" }, _G.packer_plugins)]]
-vim.cmd [[au BufRead * ++once lua require("packer.load")({'indent-blankline.nvim'}, { event = "BufRead *" }, _G.packer_plugins)]]
 time([[Defining lazy-load event autocommands]], false)
 vim.cmd("augroup END")
 vim.cmd [[augroup filetypedetect]]
+time([[Sourcing ftdetect script at: /Users/andrix/.local/share/nvim/site/pack/packer/opt/plantuml-syntax/ftdetect/plantuml.vim]], true)
+vim.cmd [[source /Users/andrix/.local/share/nvim/site/pack/packer/opt/plantuml-syntax/ftdetect/plantuml.vim]]
+time([[Sourcing ftdetect script at: /Users/andrix/.local/share/nvim/site/pack/packer/opt/plantuml-syntax/ftdetect/plantuml.vim]], false)
 time([[Sourcing ftdetect script at: /Users/andrix/.local/share/nvim/site/pack/packer/opt/kdl.vim/ftdetect/kdl.vim]], true)
 vim.cmd [[source /Users/andrix/.local/share/nvim/site/pack/packer/opt/kdl.vim/ftdetect/kdl.vim]]
 time([[Sourcing ftdetect script at: /Users/andrix/.local/share/nvim/site/pack/packer/opt/kdl.vim/ftdetect/kdl.vim]], false)
