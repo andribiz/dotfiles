@@ -5,7 +5,5 @@ require "user.plugins"
 -- require "user.project"
 -- require "user.alpha-nvim"
 -- require "user.nvim-dap"
-require "user.cmp-tabnine"
-
 -- require "user.nvim-ts-autotag"
 require "user.filetypes"
