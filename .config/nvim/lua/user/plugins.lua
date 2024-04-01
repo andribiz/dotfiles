@@ -19,8 +19,7 @@ require("lazy").setup {
         config = function() require("user.comment") end
     }, -- Easily comment stuff
     { "nvim-tree/nvim-web-devicons", event = "VeryLazy" },
-    { "nvim-tree/nvim-tree.lua",
-        keys = { "<leader>e" },
+    { "nvim-tree/nvim-tree.lua", event = "VeryLazy",
         dependencies = { "nvim-tree/nvim-web-devicons" },
         config = function() require('user.nvim-tree') end
     },
@@ -29,7 +28,7 @@ require("lazy").setup {
         config = function() require('user.bufferline') end,
     },
     -- use "moll/vim-bbye"
-    { "akinsho/toggleterm.nvim", keys = { "<leader>t" },
+    { "akinsho/toggleterm.nvim", event = "VeryLazy",
         config = function() require("user.toggleterm") end,
     },
     { "RRethy/vim-illuminate",       event = "VeryLazy", },
@@ -59,7 +58,7 @@ require("lazy").setup {
     },
     -- completion
     { "hrsh7th/nvim-cmp",
-        event = "VeryLazy",
+        event = "InsertEnter",
         dependencies = {
             "hrsh7th/cmp-buffer",  -- buffer completions
             "hrsh7th/cmp-path",    -- path completions
@@ -82,7 +81,7 @@ require("lazy").setup {
     -- Treesitter
     {
         "nvim-treesitter/nvim-treesitter",
-        event = "VeryLazy",
+        event = { 'BufRead', 'BufNewFile' },
         build = ":TSUpdate",
         config = function() require("user.treesitter") end,
     },
@@ -218,7 +217,31 @@ require("lazy").setup {
     -- use { "imsnif/kdl.vim", ft = { 'kdl' } }
     -- Keyboard AI
     { 'tzachar/cmp-tabnine',
-        build = './install.sh', dependencies = 'hrsh7th/nvim-cmp'
+        build = './install.sh', dependencies = 'hrsh7th/nvim-cmp',
+        config = function() require("user.cmp-tabnine") end,
+    },
+    -- obsidian
+    {
+        "epwalsh/obsidian.nvim",
+        version = "*", -- recommended, use latest release instead of latest commit
+        lazy = true,
+        ft = "markdown",
+        -- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
+        event = {
+            -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand'.
+            -- E.g. "BufReadPre " .. vim.fn.expand "~" .. "/my-vault/**.md"
+            "BufReadPre /Users/andrix/Nextcloud/brainvault/brainvault/**.md",
+            "BufNewFile /Users/andrix/Nextcloud/brainvault/brainvault/**.md",
+        },
+        dependencies = {
+            -- Required.
+            "nvim-lua/plenary.nvim",
+
+            -- see below for full list of optional dependencies 👇
+        },
+        config = function() require("user.obsidian") end,
+
+        -- see below for full list of options 👇
     },
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
