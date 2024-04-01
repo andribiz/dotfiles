@@ -30,6 +30,9 @@ local options = {
     updatetime = 300,
     backup = false,
     scrolloff = 8,
+    -- foldlevel = 20,
+    -- foldmethod = "expr",
+    -- foldexpr = "nvim_treesitter#foldexpr()"
 }
 
 for k, v in pairs(options) do
@@ -37,6 +40,7 @@ for k, v in pairs(options) do
 end
 
 vim.opt.shortmess:append "c"
+vim.opt.conceallevel = 1
 
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
