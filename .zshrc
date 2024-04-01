@@ -16,23 +16,23 @@ export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND --type d"
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -50'"
 
 export PYENV_ROOT="$HOME/.pyenv"
-export JAVA_HOME=`/usr/libexec/java_home -v 1.11`
-export JDK_HOME=`/usr/libexec/java_home -v 1.11`
+# export JAVA_HOME=`/usr/libexec/java_home -v 1.11`
+# export JDK_HOME=`/usr/libexec/java_home -v 1.11`
+export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+export JDK_HOME=`/usr/libexec/java_home -v 1.8`
 export GOPATH=$HOME/sdk/go
-export PATH="$PATH:/usr/local/opt/python@3.10/bin"
-#export GOPATH=/Users/andrix/Documents/personal/code/fabric-14-airline/gocc
 export GOROOT=/usr/local/opt/go/libexec
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
 export PATH=$PATH:/usr/local/Cellar/libpq/12.1_1/bin
 export PATH=$PATH:/Users/andrix/Library/Python/2.7/bin
 export PATH=$PATH:$HOME/sdk/flutter/bin
-export PATH=$PATH:/Users/andrix/Library/Python/3.9/bin
 export PATH=$PATH:/Users/andrix/sdk/rust/cargo/bin
 # export PATH=$PATH:/Users/andrix/sdk/rust/rustup/toolchains/stable-x86_64-apple-darwin/bin
 export PATH=$PATH:/Users/andrix/sdk/hyperledger-fabric-1.4.7/bin
 export PATH=$PATH:/Users/andrix/sdk/istio-1.10.2/bin
 export PATH=$PATH:/Users/andrix/.pyenv/shim
+export PATH=$PATH:/Users/andrix/.local/bin
 #export PATH=$PATH:/Users/andrix/sdk/hyperledger-fabric-2.2/bin
 export NODE_PATH=/Users/andrix/.nvm/versions/node/v12.16.3/lib/node_modules
 export PATH="$PATH:/usr/local/opt/libpq/bin"
@@ -185,8 +185,19 @@ alias td="tmux detach"
 alias ta="tmux attach -t $1"
 alias gps="git push"
 alias gpl="git pull"
-alias ll="exa -l --group --icons"
-alias lt="exa --tree --level=4 --icons"
+alias ll="eza -l --group --icons $1"
+alias la="eza -la --group --icons"
+alias lt="eza --tree --level=4 --icons"
+alias pi="pnpm install"
+alias pa="pnpm add $1"
+alias pr="pnpm run $1"
+alias prm="pnpm remove $1"
+alias pu="pnpm update $1"
+alias px="pnpm dlx $1"
+alias cat="bat"
+alias cc="cargo check"
+alias cr="cargo run"
+alias ct="cargo test"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/andrix/sdk/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/andrix/sdk/google-cloud-sdk/path.zsh.inc'; fi
@@ -203,4 +214,14 @@ eval "$(pyenv init -)"
 
 # pgcli configuration
 export PAGER="/usr/bin/less -S"
-export EDITOR="neovim"
+export EDITOR="nvim"
+
+# pnpm
+export PNPM_HOME="/Users/andrix/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+#Atuin plugins
+eval "$(atuin init zsh --disable-up-arrow)"
