@@ -81,7 +81,7 @@ require("lazy").setup {
     -- Treesitter
     {
         "nvim-treesitter/nvim-treesitter",
-        event = { 'BufRead', 'BufNewFile' },
+        -- event = { 'BufRead', 'BufNewFile' },
         build = ":TSUpdate",
         config = function() require("user.treesitter") end,
     },
@@ -128,11 +128,12 @@ require("lazy").setup {
         ft = { "typescript", "javascript", "typescriptreact", "javascriptreact" }
     },
 
-    { "windwp/nvim-ts-autotag", dependencies = { "nvim-treesitter" },
+    { "windwp/nvim-ts-autotag", dependencies = { "nvim-treesitter/nvim-treesitter" },
         config = function() require('user.nvim-ts-autotag') end,
+        event = "InsertEnter",
         ft = { "typescript", "javascript", "typescriptreact", "javascriptreact" },
     }, -- Autotag for tsx
-    { "windwp/nvim-autopairs", event = "VeryLazy",
+    { "windwp/nvim-autopairs", event = "InsertEnter",
         config = function() require("user.autopairs") end,
     }, -- Autopairs, integrates with both cmp and treesitter
     {
