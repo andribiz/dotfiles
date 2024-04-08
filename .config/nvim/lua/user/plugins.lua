@@ -88,9 +88,9 @@ require("lazy").setup {
 
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
-    -- use "jose-elias-alvarez/null-ls.nvim" -- for formatters an
+    "jose-elias-alvarez/null-ls.nvim", -- for formatters an
     { "tomlion/vim-solidity", ft = { "solidity" } },
-    { "j-hui/fidget.nvim", -- Lsp Progress
+    { "j-hui/fidget.nvim",             -- Lsp Progress
         config = function() require("fidget").setup {} end,
     },
     { "ray-x/lsp_signature.nvim",
