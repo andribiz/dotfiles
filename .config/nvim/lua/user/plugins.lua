@@ -176,6 +176,10 @@ require("lazy").setup {
     { "theHamsta/nvim-dap-virtual-text",
         config = function() require("user.nvim-dapp-virtual-text") end,
     },
+    {
+        "folke/trouble.nvim",
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+    },
     -- use { "folke/trouble.nvim", cmd = "TroubleToggle", config = "require 'trouble'.setup {}" }
     -- Rust
     { "mrcjkb/rustaceanvim", ft = { "rust" },
@@ -217,9 +221,14 @@ require("lazy").setup {
     -- kdl
     -- use { "imsnif/kdl.vim", ft = { 'kdl' } }
     -- Keyboard AI
-    { 'tzachar/cmp-tabnine',
-        build = './install.sh', dependencies = 'hrsh7th/nvim-cmp',
-        config = function() require("user.cmp-tabnine") end,
+
+    {
+        "Exafunction/codeium.vim",
+        event = 'BufEnter',
+        config = function()
+            -- Change '<C-g>' here to any keycode you like.
+            vim.keymap.set('i', '<C-g>', function() return vim.fn['codeium#Accept']() end, { expr = true, silent = true })
+        end
     },
     -- obsidian
     {
