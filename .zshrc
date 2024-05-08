@@ -16,12 +16,13 @@ export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND --type d"
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -50'"
 
 export PYENV_ROOT="$HOME/.pyenv"
-# export JAVA_HOME=`/usr/libexec/java_home -v 1.11`
-# export JDK_HOME=`/usr/libexec/java_home -v 1.11`
-export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
-export JDK_HOME=`/usr/libexec/java_home -v 1.8`
+export JAVA_HOME=`/usr/libexec/java_home -v 17`
+export JDK_HOME=`/usr/libexec/java_home -v 17`
+# export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+# export JDK_HOME=`/usr/libexec/java_home -v 1.8`
 export GOPATH=$HOME/sdk/go
 export GOROOT=/usr/local/opt/go/libexec
+
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
 export PATH=$PATH:/usr/local/Cellar/libpq/12.1_1/bin
@@ -38,6 +39,13 @@ export NODE_PATH=/Users/andrix/.nvm/versions/node/v12.16.3/lib/node_modules
 export PATH="$PATH:/usr/local/opt/libpq/bin"
 export CARGO_HOME=/Users/andrix/sdk/rust/cargo
 export RUSTUP_HOME=/Users/andrix/sdk/rust/cargo
+# Android
+export ANDROID_HOME=/Users/andrix/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+# IOS development
+export USE_FRAMEWORKS=static
+export NO_FLIPPER=1
 
 # Sementara di remove karena lambaattt.. 
 # export NVM_DIR="$HOME/.nvm"
