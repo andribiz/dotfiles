@@ -21,12 +21,11 @@ vim.g.maplocalleader = " "
 -- Normal --
 
 -- Resize with arrows
-keymap("n", "<A-Up>", ":resize -2<CR>", opts)
-keymap("n", "<A-Down>", ":resize +2<CR>", opts)
+keymap("n", "<A-j>", ":resize +2<CR>", opts)
+keymap("n", "<A-k>", ":resize -2<CR>", opts)
 -- this is not working
-keymap("n", "<A-Left>", ":vertical resize -2<CR>", opts)
-keymap("n", "<A-Right>", ":vertical resize +2<CR>", opts)
-
+keymap("n", "<A-h>", ":vertical resize -2<CR>", opts)
+keymap("n", "<A-l>", ":vertical resize +2<CR>", opts)
 
 -- Move text up and down
 keymap("n", "<A-k>", ":m .-2<CR>==", opts)
@@ -36,7 +35,6 @@ keymap("n", "<A-j>", ":m .+1<CR>==", opts)
 -- keymap("n", "cw", '"_cw', opts)
 keymap("n", "<c-p>", '"0p', opts)
 keymap("n", "<c-P>", '"0P', opts)
-
 
 keymap("n", "<leader>e", ":NvimTreeToggle <CR>", opts)
 
@@ -61,8 +59,7 @@ keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 keymap("n", "<leader>ff", "<cmd>Telescope find_files<cr>", opts)
 -- keymap("n", "<C-f>", "<cmd>Telescope current_buffer_fuzzy_find<cr>", opts)
 -- keymap("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", opts)
-keymap("n", "<leader>fg",
-    ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>", opts)
+keymap("n", "<leader>fg", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>", opts)
 keymap("n", "<leader>fd", "<cmd>Telescope diagnostics<CR>", opts)
 -- my preferences
 keymap("n", "<C-s>", "<cmd>:w<cr>", opts) -- save
@@ -81,9 +78,10 @@ keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", opts)
 keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<cr>", opts)
 keymap("n", "[d", "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>", opts)
 keymap("n", "]d", "<cmd>lua vim.lsp.diagnostic.goto_next()<cr>", opts)
-keymap("n", "<leader>f", "<cmd>lua vim.lsp.buf.format({async=true})<cr>", opts)
+-- keymap("n", "<leader>f", "<cmd>lua require('conform').format({ async = true, lsp_fallback = true })<cr>", opts)
 keymap("n", "<leader>c", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
 keymap("n", "<leader>r", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
+keymap("n", "<leader>i", "<cmd>:TSToolsOrganizeImports<cr>", opts)
 -- Git
 keymap("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<cr>", opts)
 keymap("n", "<leader>gh", ":DiffviewFileHistory<cr>", opts)
@@ -110,12 +108,18 @@ keymap("n", "<leader>du", ":lua require('dapui').open()<cr>", opts)
 
 -- Hop
 
-keymap("n", "f",
-    "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR})<cr>"
-    , opts)
-keymap("n", "F",
-    "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR})<cr>"
-    , opts)
+keymap(
+	"n",
+	"f",
+	"<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR})<cr>",
+	opts
+)
+keymap(
+	"n",
+	"F",
+	"<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR})<cr>",
+	opts
+)
 
 -- bufferline
 keymap("n", "gt", ":BufferLinePick<CR>", opts)
