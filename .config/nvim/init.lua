@@ -1,9 +1,2 @@
-require "user.options"
-require "user.keymaps"
-require "user.plugins"
--- require "user.treesitter"
--- require "user.project"
--- require "user.alpha-nvim"
--- require "user.nvim-dap"
--- require "user.nvim-ts-autotag"
--- require "user.filetypes"
+-- bootstrap lazy.nvim, LazyVim and your plugins
+require("config.lazy")
