@@ -11,7 +11,7 @@ keymap.set("n", "cw", '"_cw', opts)
 
 keymap.set("n", "<C-s>", "<cmd>:w<cr>", opts) -- save
 keymap.set("i", "<C-s>", "<Esc>:w<cr>", opts) -- save
-keymap.set("n", "Q", "<cmd>lua require('mini.bufremove').delete()<cr>", opts)
+keymap.set("n", "Q", LazyVim.ui.bufremove, opts)
 
 keymap.set("v", "J", ":m '>+1<CR>gv=gv", opts)
 keymap.set("v", "K", ":m '<-2<CR>gv=gv", opts)

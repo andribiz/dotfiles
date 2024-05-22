@@ -5,7 +5,6 @@ return {
     cmd = "ToggleTerm",
     keys = { { "<leader>t", "<cmd>ToggleTerm<cr>", mode = { "n" }, desc = "Toggle floating terminal" } },
     opts = {
-      open_mapping = [[<leader>t]],
       insert_mappings = false,
       direction = "horizontal",
       size = 20,
