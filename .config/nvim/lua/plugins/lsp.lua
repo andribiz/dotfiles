@@ -1,5 +1,12 @@
 return {
   -- tools
+  --
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      inlay_hints = { enabled = false },
+    },
+  },
   {
     "williamboman/mason.nvim",
     opts = function(_, opts)
