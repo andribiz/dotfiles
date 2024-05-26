@@ -4,11 +4,11 @@ return {
     opts = {
       linters_by_ft = {
         fish = { "fish" },
-        javascript = { "eslint" },
-        typescript = { "eslint" },
-        javascriptreact = { "eslint" },
-        typescriptreact = { "eslint" },
-        svelte = { "eslint" },
+        -- javascript = { "eslint" },
+        -- typescript = { "eslint" },
+        -- javascriptreact = { "eslint" },
+        -- typescriptreact = { "eslint" },
+        -- svelte = { "eslint" },
         python = { "ruff" },
       },
       -- LazyVim extension to easily override linter options
