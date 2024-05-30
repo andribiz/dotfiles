@@ -23,9 +23,6 @@ keymap.set("n", "<C-u>", "<C-u>zz", opts)
 keymap.set("n", "<leader>rr", "<cmd>Rest run<cr>", opts)
 keymap.set("n", "<leader>rl", "<cmd>Rest run last<cr>", opts)
 
--- terminal
-keymap.set("n", "<leader>T", "<cmd>2ToggleTerm direction=horizontal size=20<cr>", opts)
-
 -- bufferline
 keymap.set("n", "<leader>1", ":BufferLineGoToBuffer 1<cr>", opts)
 keymap.set("n", "<leader>2", ":BufferLineGoToBuffer 2<cr>", opts)
@@ -36,6 +33,3 @@ keymap.set("n", "<leader>6", ":BufferLineGoToBuffer 6<cr>", opts)
 keymap.set("n", "<leader>7", ":BufferLineGoToBuffer 7<cr>", opts)
 keymap.set("n", "<leader>8", ":BufferLineGoToBuffer 8<cr>", opts)
 keymap.set("n", "<leader>9", ":BufferLineGoToBuffer 9<cr>", opts)
-
---telescope
-keymap.set("n", "<leader>/", require("telescope").extensions.live_grep_args.live_grep_args, { desc = "Live grep args" })
