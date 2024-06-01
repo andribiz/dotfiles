@@ -9,55 +9,6 @@ return {
         ["<C-j>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
         ["<C-k>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
       })
-      -- opts = function()
-      --   vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
-      --   local cmp = require("cmp")
-      --   local defaults = require("cmp.config.default")()
-      --   return {
-      --     auto_brackets = {}, -- configure any filetype to auto add brackets
-      --     completion = {
-      --       completeopt = "menu,menuone,noinsert",
-      --     },
-      --     mapping = cmp.mapping.preset.insert({
-      --       ["<C-j>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
-      --       ["<C-k>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
-      --       ["<C-b>"] = cmp.mapping.scroll_docs(-4),
-      --       ["<C-f>"] = cmp.mapping.scroll_docs(4),
-      --       ["<C-Space>"] = cmp.mapping.complete(),
-      --       ["<C-e>"] = cmp.mapping.abort(),
-      --       ["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-      --       ["<S-CR>"] = cmp.mapping.confirm({
-      --         behavior = cmp.ConfirmBehavior.Replace,
-      --         select = true,
-      --       }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-      --       ["<C-CR>"] = function(fallback)
-      --         cmp.abort()
-      --         fallback()
-      --       end,
-      --     }),
-      --     sources = cmp.config.sources({
-      --       { name = "nvim_lsp" },
-      --       { name = "path" },
-      --       { name = "luasnip" },
-      --     }, {
-      --       { name = "buffer" },
-      --     }),
-      --     formatting = {
-      --       format = function(_, item)
-      --         local icons = require("lazyvim.config").icons.kinds
-      --         if icons[item.kind] then
-      --           item.kind = icons[item.kind] .. item.kind
-      --         end
-      --         return item
-      --       end,
-      --     },
-      --     experimental = {
-      --       ghost_text = {
-      --         hl_group = "CmpGhostText",
-      --       },
-      --     },
-      --     sorting = defaults.sorting,
-      --   }
     end,
   },
   {
@@ -70,16 +21,51 @@ return {
       end, { expr = true, silent = true })
     end,
   },
+
   {
-    "L3MON4D3/LuaSnip",
-    dependencies = {
-      {
-        "rafamadriz/friendly-snippets",
-        config = function()
-          require("luasnip.loaders.from_vscode").lazy_load()
-          require("luasnip.loaders.from_vscode").lazy_load({ paths = { vim.fn.stdpath("config") .. "/snippet" } })
-        end,
-      },
-    },
+    "ThePrimeagen/harpoon",
+    branch = "harpoon2",
+    keys = function()
+      local keys = {
+        {
+          "<leader>hs",
+          function()
+            require("harpoon"):list():add()
+          end,
+          desc = "Harpoon File",
+        },
+        {
+          "<leader>hh",
+          function()
+            local harpoon = require("harpoon")
+            harpoon.ui:toggle_quick_menu(harpoon:list())
+          end,
+          desc = "Harpoon Quick Menu",
+        },
+      }
+
+      for i = 1, 5 do
+        table.insert(keys, {
+          "<leader>h" .. i,
+          function()
+            require("harpoon"):list():select(i)
+          end,
+          desc = "Harpoon to File " .. i,
+        })
+      end
+      return keys
+    end,
   },
+  -- {
+  --   "L3MON4D3/LuaSnip",
+  --   dependencies = {
+  --     {
+  --       "rafamadriz/friendly-snippets",
+  --       config = function()
+  --         require("luasnip.loaders.from_vscode").lazy_load()
+  --         require("luasnip.loaders.from_vscode").lazy_load({ paths = { vim.fn.stdpath("config") .. "/snippet" } })
+  --       end,
+  --     },
+  --   },
+  -- },
 }
