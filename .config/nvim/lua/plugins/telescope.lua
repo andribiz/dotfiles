@@ -7,8 +7,17 @@ return {
       },
       {
         "nvim-telescope/telescope-fzf-native.nvim",
-        -- enabled = false,
         build = "make",
+      },
+      {
+
+        "danielfalk/smart-open.nvim",
+        branch = "0.2.x",
+        dependencies = {
+          {
+            "kkharji/sqlite.lua",
+          },
+        },
       },
     },
     opts = function(_, opts)
@@ -31,17 +40,29 @@ return {
             case_mode = "smart_case", -- or "ignore_case" or "respect_case"
             -- the default case_mode is "smart_case"
           },
+          smart_open = {
+            match_algorithm = "fzf",
+            show_scores = true,
+          },
         },
       })
     end,
     keys = {
       { "<leader>/", "<cmd>Telescope live_grep_args<cr>", desc = "Live grep args" },
+      {
+        "<leader><leader>",
+        function()
+          require("telescope").extensions.smart_open.smart_open()
+        end,
+        desc = "Smart Open",
+      },
     },
     config = function(_, opts)
       local telescope = require("telescope")
       telescope.setup(opts)
       telescope.load_extension("live_grep_args")
       telescope.load_extension("fzf")
+      telescope.load_extension("smart_open")
     end,
   },
 }
