@@ -22,7 +22,6 @@ export JDK_HOME=`/usr/libexec/java_home -v 17`
 # export JDK_HOME=`/usr/libexec/java_home -v 1.8`
 export GOPATH=$HOME/sdk/go
 export GOROOT=/usr/local/opt/go/libexec
-
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
 export PATH=$PATH:/usr/local/Cellar/libpq/12.1_1/bin
@@ -39,13 +38,14 @@ export NODE_PATH=/Users/andrix/.nvm/versions/node/v12.16.3/lib/node_modules
 export PATH="$PATH:/usr/local/opt/libpq/bin"
 export CARGO_HOME=/Users/andrix/sdk/rust/cargo
 export RUSTUP_HOME=/Users/andrix/sdk/rust/cargo
+export PATH=/usr/local/sbin:$PATH
 # Android
 export ANDROID_HOME=/Users/andrix/Library/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 # IOS development
-export USE_FRAMEWORKS=static
-export NO_FLIPPER=1
+# export USE_FRAMEWORKS=static
+# export NO_FLIPPER=1
 
 # Sementara di remove karena lambaattt.. 
 # export NVM_DIR="$HOME/.nvm"
@@ -59,7 +59,7 @@ export PGO_CLIENT_CERT=/Users/andrix/.pgo/pgo/client.crt
 export PGO_CLIENT_KEY=/Users/andrix/.pgo/pgo/client.key
 
 # Autojump Config
-[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+# [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
 
 
 # Set name of the theme to load --- if set to "random", it will
@@ -190,7 +190,7 @@ alias lg="lazygit"
 alias t="tmux"
 alias tl="tmux list"
 alias td="tmux detach"
-alias ta="tmux attach -t $1"
+alias ta="tmux attach"
 alias gps="git push"
 alias gpl="git pull"
 alias ll="eza -l --group --icons $1"
@@ -206,7 +206,7 @@ alias cat="bat"
 alias cc="cargo check"
 alias cr="cargo run"
 alias ct="cargo test"
-
+alias y="yazi"
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/andrix/sdk/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/andrix/sdk/google-cloud-sdk/path.zsh.inc'; fi
 
@@ -233,3 +233,6 @@ esac
 # pnpm end
 #Atuin plugins
 eval "$(atuin init zsh --disable-up-arrow)"
+
+# Zoxide plugins
+eval "$(zoxide init zsh)"
