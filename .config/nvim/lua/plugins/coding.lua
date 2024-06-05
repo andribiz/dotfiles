@@ -12,7 +12,7 @@ return {
     end,
   },
   {
-    "Exafunction/codeium.vim",
+    "Exafunction/codeium.nvim",
     event = "BufEnter",
     config = function()
       -- Change '<C-g>' here to any keycode you like.

@@ -5,7 +5,7 @@ return {
   },
   {
     "rebelot/kanagawa.nvim",
-    lazy = false,
+    lazy = true,
     priority = 1000,
   },
 
@@ -54,6 +54,7 @@ return {
   },
   {
     "sainnhe/sonokai",
+    lazy = true,
     priority = 1000,
     config = function()
       vim.g.sonokai_transparent_background = "0"
