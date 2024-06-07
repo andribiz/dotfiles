@@ -1,47 +1,23 @@
 return {
   {
     "nvim-neo-tree/neo-tree.nvim",
-    opts = {
-      window = {
-        mappings = {
-          ["l"] = "open",
-          ["Y"] = {
-            function(state)
-              local node = state.tree:get_node()
-              local path = node:get_id()
-              vim.fn.setreg("+", path, "c")
-            end,
-            desc = "Copy Path to Clipboard",
-          },
-          ["O"] = {
-            function(state)
-              require("lazy.util").open(state.tree:get_node().path, { system = true })
-            end,
-            desc = "Open with System Application",
+    opts = function(_, opts)
+      return vim.tbl_deep_extend("force", opts, {
+        window = {
+          mappings = {
+            ["l"] = "open",
           },
         },
-      },
-    },
+      })
+    end,
   },
   {
-    "folke/flash.nvim",
+    "stevearc/oil.nvim",
+    opts = {},
+    -- Optional dependencies
+    dependencies = { "nvim-tree/nvim-web-devicons" },
     keys = {
-      {
-        "f",
-        mode = { "n", "x", "o" },
-        function()
-          require("flash").jump()
-        end,
-        desc = "Flash",
-      },
-      {
-        "F",
-        mode = { "n", "o", "x" },
-        function()
-          require("flash").treesitter()
-        end,
-        desc = "Flash Treesitter",
-      },
+      { "-", "<cmd>Oil<cr>", desc = "Open oil folder" },
     },
   },
 }

@@ -21,43 +21,29 @@ local lspname = {
 return {
   {
     "rcarriga/nvim-notify",
-    opts = {
-      timeout = 3000,
-      render = "compact",
-      stages = "fade",
-      top_down = true,
-    },
+    opts = function(_, opts)
+      opts.render = "compact"
+    end,
   },
-
   {
     "folke/noice.nvim",
     event = "VeryLazy",
-    opts = {
-      presets = {
-        bottom_search = true,
-        command_palette = false,
-        long_message_to_split = true,
-        inc_rename = true,
-        lsp_doc_border = false, -- add a border to hover docs and signature help
-      },
-      lsp = {
-        hover = {
-          enabled = true,
-          silent = true, -- set to true to not show a message if hover is not available
-          view = nil, -- when nil, use defaults from documentation
-          ---@type NoiceViewOptions
-          opts = {}, -- merged with defaults from documentation
+    opts = function(_, opts)
+      opts.presets.command_palette = false
+      table.insert(opts.routes, {
+        filter = {
+          event = "notify",
+          find = "No information available",
         },
-      },
-    },
+        opts = { skip = true },
+      })
+    end,
   },
   {
     "akinsho/bufferline.nvim",
-    opts = {
-      options = {
-        numbers = "ordinal", -- | "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string,
-      },
-    },
+    opts = function(_, opts)
+      opts.options.numbers = "ordinal"
+    end,
   },
   {
     "nvim-lualine/lualine.nvim",
