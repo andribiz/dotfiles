@@ -123,7 +123,6 @@ return {
       { "<c-j>", "<cmd>NavigatorDown<cr>", desc = "NavigatorDown" },
       { "<c-k>", "<cmd>NavigatorUp<cr>", desc = "NavigatorUp" },
       { "<c-l>", "<cmd>NavigatorRight<cr>", desc = "NavigatorRight" },
-      { "<c-h>", "<cmd>NavigatorPrevious<cr>", desc = "NavigatorPrevious" },
     },
   },
 }
