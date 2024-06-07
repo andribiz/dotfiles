@@ -95,18 +95,35 @@ return {
     end,
   },
   {
-    "christoomey/vim-tmux-navigator",
+    "numToStr/Navigator.nvim",
+    opts = {
+      -- Save modified buffer(s) when moving to mux
+      -- nil - Don't save (default)
+      -- 'current' - Only save the current modified buffer
+      -- 'all' - Save all the buffers
+      auto_save = nil,
+
+      -- Disable navigation when the current mux pane is zoomed in
+      disable_on_zoom = false,
+
+      -- Multiplexer to use
+      -- 'auto' - Chooses mux based on priority (default)
+      -- table - Custom mux to use
+      mux = "auto",
+    },
     cmd = {
-      "TmuxNavigateLeft",
-      "TmuxNavigateDown",
-      "TmuxNavigateUp",
-      "TmuxNavigateRight",
+      "NavigatorLeft",
+      "NavigatorRight",
+      "NavigatorUp",
+      "NavigatorDown",
+      "NavigatorPrevious",
     },
     keys = {
-      { "<c-h>", "<cmd><C-U>TmuxNavigateLeft<cr>" },
-      { "<c-j>", "<cmd><C-U>TmuxNavigateDown<cr>" },
-      { "<c-k>", "<cmd><C-U>TmuxNavigateUp<cr>" },
-      { "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
+      { "<c-h>", "<cmd>NavigatorLeft<cr>", desc = "NavigatorLeft" },
+      { "<c-j>", "<cmd>NavigatorDown<cr>", desc = "NavigatorDown" },
+      { "<c-k>", "<cmd>NavigatorUp<cr>", desc = "NavigatorUp" },
+      { "<c-l>", "<cmd>NavigatorRight<cr>", desc = "NavigatorRight" },
+      { "<c-h>", "<cmd>NavigatorPrevious<cr>", desc = "NavigatorPrevious" },
     },
   },
 }
