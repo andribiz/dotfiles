@@ -15,3 +15,28 @@
 --     end
 --   end,
 -- })
+local function augroup(name)
+  return vim.api.nvim_create_augroup("andrix_" .. name, { clear = true })
+end
+
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  group = augroup("set_tab_4"),
+  pattern = { "go" },
+  callback = function()
+    vim.opt_local.tabstop = 4
+    vim.opt_local.shiftwidth = 4
+    vim.opt_local.softtabstop = 0
+    vim.opt_local.expandtab = false
+  end,
+})
+
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  group = augroup("set_tab_space_4"),
+  pattern = { "python", "rust" },
+  callback = function()
+    vim.opt_local.tabstop = 4
+    vim.opt_local.shiftwidth = 4
+    vim.opt_local.softtabstop = 0
+    vim.opt_local.expandtab = true
+  end,
+})
