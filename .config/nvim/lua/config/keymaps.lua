@@ -6,6 +6,7 @@ local opts = { noremap = true, silent = true }
 
 keymap.set("n", "x", '"_x', opts)
 keymap.set("n", "cw", '"_cw', opts)
+keymap.set("n", "ciw", '"_ciw', opts)
 -- keymap.set("n", "J", "5j", opts)
 -- keymap.set("n", "K", "5K", opts)
 
@@ -18,10 +19,6 @@ keymap.set("v", "K", ":m '<-2<CR>gv=gv", opts)
 
 keymap.set("n", "<C-d>", "<C-d>zz", opts)
 keymap.set("n", "<C-u>", "<C-u>zz", opts)
-
--- rest nvim
-keymap.set("n", "<leader>rr", "<cmd>Rest run<cr>", opts)
-keymap.set("n", "<leader>rl", "<cmd>Rest run last<cr>", opts)
 
 -- bufferline
 keymap.set("n", "<leader>1", ":BufferLineGoToBuffer 1<cr>", opts)

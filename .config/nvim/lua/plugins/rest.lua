@@ -12,8 +12,9 @@ return {
         },
       },
     },
-    config = function()
-      require("rest-nvim").setup()
-    end,
+    keys = {
+      { "<leader>rr", "<cmd>RestNvim<cr>", desc = "RestNvim" },
+      { "<leader>rl", "<cmd>RestNvimLast<cr>", desc = "RestNvimLast" },
+    },
   },
 }
