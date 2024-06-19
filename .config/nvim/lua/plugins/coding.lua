@@ -1,3 +1,21 @@
+local function biome_lsp_or_prettier(bufnr)
+  -- local has_biome_lsp = vim.lsp.get_active_clients({
+  --   bufnr = bufnr,
+  --   name = "biome",
+  -- })[1]
+  -- if has_biome_lsp then
+  --   return {}
+  -- end
+  local has_biome = vim.fs.find({
+    -- https://prettier.io/docs/en/configuration.html
+    "biome.json",
+  }, { upward = true })[1]
+  if has_biome then
+    return { "biome_check_unsafe" }
+  end
+  return { "prettier" }
+end
+
 return {
   {
     "hrsh7th/nvim-cmp",
@@ -20,6 +38,40 @@ return {
       vim.keymap.set("i", "<C-g>", neocodeium.accept)
     end,
   },
+  {
+    "stevearc/conform.nvim",
+    opts = {
+      formatters_by_ft = {
+        ["javascript"] = biome_lsp_or_prettier,
+        ["javascriptreact"] = biome_lsp_or_prettier,
+        ["typescript"] = biome_lsp_or_prettier,
+        ["typescriptreact"] = biome_lsp_or_prettier,
+        ["vue"] = { "biome" },
+        ["css"] = { "biome" },
+        ["scss"] = { "biome" },
+        ["less"] = { "biome" },
+        ["html"] = { "biome" },
+        ["json"] = { "biome" },
+        ["jsonc"] = { "biome" },
+        ["yaml"] = { "biome" },
+        ["markdown"] = { "biome" },
+        ["markdown.mdx"] = { "biome" },
+        ["graphql"] = { "biome" },
+        ["handlebars"] = { "biome" },
+      },
+      formatters = {
+        biome_check_unsafe = {
+          command = "biome",
+          args = { "check", "--apply", "--unsafe", "--stdin-file-path", "$FILENAME" },
+          stdin = true,
+          -- A function that calculates the directory to run the command in
+          cwd = require("conform.util").root_file({ "biome.json", "biome.jsonc" }),
+          require_cwd = true,
+        },
+      },
+    },
+  },
+
   -- {
   --   "Exafunction/codeium.nvim",
   --   event = "BufEnter",

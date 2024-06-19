@@ -1,3 +1,13 @@
+local function biome_lsp_or_eslint(is_eslint)
+  local has_biome = vim.fs.find({
+    "biome.json",
+  }, { upward = true })[1]
+  if (has_biome and is_eslint) or (not has_biome and not is_eslint) then
+    return { mason = false, autostart = false }
+  end
+  return { mason = false, autostart = true }
+end
+
 return {
   -- tools
   --
@@ -18,9 +28,9 @@ return {
         "typescript-language-server",
         "css-lsp",
         "gopls",
-        "rust-analyzer",
         "json-lsp",
         "taplo",
+        "biome",
       })
     end,
   },
@@ -53,6 +63,19 @@ return {
         enable = true,
         use_virtual_text = true,
         lint_events = { "BufWrite", "CursorHold" },
+      },
+    },
+  },
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      servers = {
+        eslint = biome_lsp_or_eslint(true),
+        biome = biome_lsp_or_eslint(false),
+        pyright = {
+          mason = false,
+          autostart = false,
+        },
       },
     },
   },
