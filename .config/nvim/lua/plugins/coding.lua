@@ -51,7 +51,7 @@ return {
         ["scss"] = { "biome" },
         ["less"] = { "biome" },
         ["html"] = { "biome" },
-        ["json"] = { "biome" },
+        ["json"] = biome_lsp_or_prettier,
         ["jsonc"] = { "biome" },
         ["yaml"] = { "biome" },
         ["markdown"] = { "biome" },
