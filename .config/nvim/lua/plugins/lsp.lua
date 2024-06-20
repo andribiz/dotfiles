@@ -72,10 +72,6 @@ return {
       servers = {
         eslint = biome_lsp_or_eslint(true),
         biome = biome_lsp_or_eslint(false),
-        pyright = {
-          mason = false,
-          autostart = false,
-        },
       },
     },
   },
