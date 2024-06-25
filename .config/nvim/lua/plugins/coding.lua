@@ -39,6 +39,10 @@ return {
     end,
   },
   {
+    "https://gitlab.com/HiPhish/rainbow-delimiters.nvim",
+    event = "LazyFile",
+  },
+  {
     "stevearc/conform.nvim",
     opts = {
       formatters_by_ft = {
@@ -54,8 +58,8 @@ return {
         ["json"] = biome_lsp_or_prettier,
         ["jsonc"] = { "biome" },
         ["yaml"] = { "biome" },
-        ["markdown"] = { "biome" },
-        ["markdown.mdx"] = { "biome" },
+        ["markdown"] = { "prettier" },
+        ["markdown.mdx"] = { "prettier" },
         ["graphql"] = { "biome" },
         ["handlebars"] = { "biome" },
       },
@@ -117,16 +121,4 @@ return {
       return keys
     end,
   },
-  -- {
-  --   "L3MON4D3/LuaSnip",
-  --   dependencies = {
-  --     {
-  --       "rafamadriz/friendly-snippets",
-  --       config = function()
-  --         require("luasnip.loaders.from_vscode").lazy_load()
-  --         require("luasnip.loaders.from_vscode").lazy_load({ paths = { vim.fn.stdpath("config") .. "/snippet" } })
-  --       end,
-  --     },
-  --   },
-  -- },
 }
