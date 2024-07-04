@@ -66,7 +66,7 @@ return {
       formatters = {
         biome_check_unsafe = {
           command = "biome",
-          args = { "check", "--apply", "--unsafe", "--stdin-file-path", "$FILENAME" },
+          args = { "check", "--write", "--unsafe", "--stdin-file-path", "$FILENAME" },
           stdin = true,
           -- A function that calculates the directory to run the command in
           cwd = require("conform.util").root_file({ "biome.json", "biome.jsonc" }),
