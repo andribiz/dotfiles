@@ -32,7 +32,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 
 vim.api.nvim_create_autocmd({ "FileType" }, {
   group = augroup("set_tab_space_4"),
-  pattern = { "python", "rust" },
+  pattern = { "python", "rust", "java" },
   callback = function()
     vim.opt_local.tabstop = 4
     vim.opt_local.shiftwidth = 4
