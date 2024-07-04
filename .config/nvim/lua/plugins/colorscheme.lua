@@ -2,6 +2,8 @@ return {
   -- add gruvbox
   {
     "ellisonleao/gruvbox.nvim",
+    lazy = true,
+    priority = 1000,
   },
   {
     "rebelot/kanagawa.nvim",
@@ -58,14 +60,14 @@ return {
     config = function()
       vim.g.sonokai_transparent_background = "0"
       vim.g.sonokai_enable_italic = "1"
-      vim.g.sonokai_style = "shusia"
+      vim.g.sonokai_style = "default"
     end,
   },
   -- Configure LazyVim to load gruvbox
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "gruvbox",
+      colorscheme = "kanagawa-wave",
     },
   },
 }
