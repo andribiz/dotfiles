@@ -1,13 +1,5 @@
 local function biome_lsp_or_prettier(bufnr)
-  -- local has_biome_lsp = vim.lsp.get_active_clients({
-  --   bufnr = bufnr,
-  --   name = "biome",
-  -- })[1]
-  -- if has_biome_lsp then
-  --   return {}
-  -- end
   local has_biome = vim.fs.find({
-    -- https://prettier.io/docs/en/configuration.html
     "biome.json",
   }, { upward = true })[1]
   if has_biome then
@@ -32,11 +24,30 @@ return {
   {
     "monkoose/neocodeium",
     event = "VeryLazy",
+    enabled = false,
     config = function()
       local neocodeium = require("neocodeium")
-      neocodeium.setup()
+      neocodeium.setup({
+        filetypes = {
+          TelescopePrompt = false,
+          ["neo-tree-popup"] = false,
+          ["dap-repl"] = false,
+        },
+      })
       vim.keymap.set("i", "<C-g>", neocodeium.accept)
     end,
+  },
+  {
+    "supermaven-inc/supermaven-nvim",
+    build = ":SupermavenUseFree",
+    commit = "df3ecf7",
+    opts = {
+      keymaps = {
+        accept_suggestion = "<C-g>",
+        clear_suggestion = "<C-]>",
+        accept_word = "<C-j>",
+      },
+    },
   },
   {
     "https://gitlab.com/HiPhish/rainbow-delimiters.nvim",
@@ -51,17 +62,18 @@ return {
         ["typescript"] = biome_lsp_or_prettier,
         ["typescriptreact"] = biome_lsp_or_prettier,
         ["vue"] = { "biome" },
-        ["css"] = { "biome" },
+        ["css"] = biome_lsp_or_prettier,
         ["scss"] = { "biome" },
         ["less"] = { "biome" },
-        ["html"] = { "biome" },
+        ["html"] = biome_lsp_or_prettier,
         ["json"] = biome_lsp_or_prettier,
         ["jsonc"] = { "biome" },
-        ["yaml"] = { "biome" },
+        ["yaml"] = { "prettier" },
         ["markdown"] = { "prettier" },
         ["markdown.mdx"] = { "prettier" },
         ["graphql"] = { "biome" },
         ["handlebars"] = { "biome" },
+        ["proto"] = { "clang_format" },
       },
       formatters = {
         biome_check_unsafe = {
@@ -75,18 +87,6 @@ return {
       },
     },
   },
-
-  -- {
-  --   "Exafunction/codeium.nvim",
-  --   event = "BufEnter",
-  --   config = function()
-  --     -- Change '<C-g>' here to any keycode you like.
-  --     vim.keymap.set("i", "<C-g>", function()
-  --       return vim.fn["codeium#Accept"]()
-  --     end, { expr = true, silent = true })
-  --   end,
-  -- },
-  --
   {
     "ThePrimeagen/harpoon",
     branch = "harpoon2",
