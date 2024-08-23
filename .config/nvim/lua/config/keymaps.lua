@@ -5,8 +5,6 @@ local keymap = vim.keymap
 local opts = { noremap = true, silent = true }
 
 keymap.set("n", "x", '"_x', opts)
-keymap.set("n", "cw", '"_cw', opts)
-keymap.set("n", "ciw", '"_ciw', opts)
 -- keymap.set("n", "J", "5j", opts)
 -- keymap.set("n", "K", "5K", opts)
 
