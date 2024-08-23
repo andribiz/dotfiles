@@ -9,7 +9,7 @@ export ZSH="/Users/andrix/.oh-my-zsh"
 
 # FZF Config
 export FZF_DEFAULT_COMMAND='fd --type f '
-export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
+export FZF_DEFAULT_OPTS='--height 40% --layout=default --border'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_CTRL_T_OPTS="--preview 'bat --color=always --line-range :50 {}'"
 export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND --type d"
@@ -25,7 +25,7 @@ export GOROOT=/usr/local/opt/go/libexec
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
 export PATH=$PATH:/usr/local/Cellar/libpq/12.1_1/bin
-export PATH=$PATH:/Users/andrix/Library/Python/2.7/bin
+# export PATH=$PATH:/Users/andrix/Library/Python/2.7/bin
 export PATH=$PATH:$HOME/sdk/flutter/bin
 export PATH=$PATH:/Users/andrix/sdk/rust/cargo/bin
 # export PATH=$PATH:/Users/andrix/sdk/rust/rustup/toolchains/stable-x86_64-apple-darwin/bin
@@ -57,6 +57,8 @@ export PGOUSER=/Users/andrix/.pgo/pgo/pgouser
 export PGO_CA_CERT=/Users/andrix/.pgo/pgo/client.crt
 export PGO_CLIENT_CERT=/Users/andrix/.pgo/pgo/client.crt
 export PGO_CLIENT_KEY=/Users/andrix/.pgo/pgo/client.key
+
+export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/opt/openssl/lib/
 
 # Autojump Config
 # [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
@@ -142,7 +144,6 @@ plugins=(
   docker
   gcloud
   golang
-  python
   rust
   kubectl
   fzf
@@ -177,9 +178,10 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+# test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 eval "$(starship init zsh)"
+source <(fzf --zsh)
 
 
 USE_GKE_GCLOUD_AUTH_PLUGIN=True
@@ -207,6 +209,7 @@ alias cc="cargo check"
 alias cr="cargo run"
 alias ct="cargo test"
 alias y="yazi"
+alias vb="nvim /Users/andrix/Nextcloud/brainvault/brainvault/"
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/andrix/sdk/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/andrix/sdk/google-cloud-sdk/path.zsh.inc'; fi
 
@@ -215,9 +218,10 @@ if [ -f '/Users/andrix/sdk/google-cloud-sdk/completion.zsh.inc' ]; then . '/User
 
 
 # PyENV
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+export PYENV_ROOT="/Users/andrix/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
 
 # pgcli configuration
