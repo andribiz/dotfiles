@@ -10,7 +10,9 @@ keymap.set("n", "x", '"_x', opts)
 
 keymap.set("n", "<C-s>", "<cmd>:w<cr>", opts) -- save
 keymap.set("i", "<C-s>", "<Esc>:w<cr>", opts) -- save
-keymap.set("n", "Q", LazyVim.ui.bufremove, opts)
+keymap.set("n", "Q", function()
+  Snacks.bufdelete()
+end, opts)
 
 keymap.set("v", "J", ":m '>+1<CR>gv=gv", opts)
 keymap.set("v", "K", ":m '<-2<CR>gv=gv", opts)
