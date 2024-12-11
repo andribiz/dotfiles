@@ -49,10 +49,10 @@ return {
       },
     },
   },
-  {
-    "https://gitlab.com/HiPhish/rainbow-delimiters.nvim",
-    event = "LazyFile",
-  },
+  -- {
+  --   "https://gitlab.com/HiPhish/rainbow-delimiters.nvim",
+  --   event = "LazyFile",
+  -- },
   {
     "stevearc/conform.nvim",
     opts = {
@@ -120,5 +120,29 @@ return {
       end
       return keys
     end,
+  },
+  {
+    "folke/snacks.nvim",
+    priority = 1000,
+    lazy = false,
+    ---@type snacks.Config
+    opts = {
+      ---@class snacks.scroll.Config
+      ---@field animate snacks.animate.Config
+      scroll = {
+        enabled = true,
+        animate = {
+          duration = { step = 15, total = 250 },
+          easing = "linear",
+        },
+        -- what buffers to animate
+        filter = function(buf)
+          return vim.g.snacks_scroll ~= false
+            and vim.b[buf].snacks_scroll ~= false
+            and vim.bo[buf].buftype ~= "terminal"
+        end,
+      },
+      indent = { enabled = true },
+    },
   },
 }
