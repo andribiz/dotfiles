@@ -147,6 +147,8 @@ plugins=(
   rust
   kubectl
   fzf
+  direnv
+  vi-mode
   )
 
 
@@ -193,8 +195,8 @@ alias t="tmux"
 alias tl="tmux list"
 alias td="tmux detach"
 alias ta="tmux attach"
-alias gps="git push"
-alias gpl="git pull"
+alias gP="git push"
+alias gp="git pull"
 alias ll="eza -l --group --icons $1"
 alias la="eza -la --group --icons"
 alias lt="eza --tree --level=4 --icons"
@@ -208,7 +210,6 @@ alias cat="bat"
 alias cc="cargo check"
 alias cr="cargo run"
 alias ct="cargo test"
-alias y="yazi"
 alias vb="nvim /Users/andrix/Nextcloud/brainvault/brainvault/"
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/andrix/sdk/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/andrix/sdk/google-cloud-sdk/path.zsh.inc'; fi
@@ -240,3 +241,15 @@ eval "$(atuin init zsh --disable-up-arrow)"
 
 # Zoxide plugins
 eval "$(zoxide init zsh)"
+
+# Atac
+export ATAC_MAIN_DIR="/Volumes/DATA/research/code/atac"
+export ATAC_KEY_BINDINGS="/Volumes/DATA/research/code/atac/vim_keybinding.toml"
+# proxy list
+alias proxy='export all_proxy=socks5://127.0.0.1:10808'
+alias unproxy='unset all_proxy'
+export all_proxy="socks5://127.0.0.1:10808"
+# export http_proxy="socks5://127.0.0.1:10808"
+# export https_proxy="http://127.0.0.1:10809"
+export https_proxy="http://127.0.0.1:10809"
+export http_proxy="socks5://127.0.0.1:10809"

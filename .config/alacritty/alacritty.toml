@@ -154,6 +154,18 @@ chars = "\u0001d"
 key = "D"
 mods = "Command"
 
+# Sessh into session
+[[keyboard.bindings]]
+chars = "\u0001t"
+key = "J"
+mods = "Command"
+
+# Sessh into session
+[[keyboard.bindings]]
+chars = "\u0001L"
+key = "L"
+mods = "Command"
+
 # neovim save
 [[keyboard.bindings]]
 chars = """
