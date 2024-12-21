@@ -10,18 +10,6 @@ end
 
 return {
   {
-    "hrsh7th/nvim-cmp",
-
-    ---@param opts cmp.ConfigSchema
-    opts = function(_, opts)
-      local cmp = require("cmp")
-      opts.mapping = vim.tbl_extend("force", opts.mapping, {
-        ["<C-j>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
-        ["<C-k>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
-      })
-    end,
-  },
-  {
     "monkoose/neocodeium",
     event = "VeryLazy",
     enabled = false,
@@ -49,10 +37,10 @@ return {
       },
     },
   },
-  -- {
-  --   "https://gitlab.com/HiPhish/rainbow-delimiters.nvim",
-  --   event = "LazyFile",
-  -- },
+  {
+    "https://gitlab.com/HiPhish/rainbow-delimiters.nvim",
+    event = "LazyFile",
+  },
   {
     "stevearc/conform.nvim",
     opts = {
@@ -129,20 +117,9 @@ return {
     opts = {
       ---@class snacks.scroll.Config
       ---@field animate snacks.animate.Config
-      scroll = {
-        enabled = true,
-        animate = {
-          duration = { step = 15, total = 250 },
-          easing = "linear",
-        },
-        -- what buffers to animate
-        filter = function(buf)
-          return vim.g.snacks_scroll ~= false
-            and vim.b[buf].snacks_scroll ~= false
-            and vim.bo[buf].buftype ~= "terminal"
-        end,
-      },
+      bigfile = { enabled = true },
       indent = { enabled = true },
+      scope = { enabled = true },
     },
   },
 }

@@ -17,8 +17,8 @@ end, opts)
 keymap.set("v", "J", ":m '>+1<CR>gv=gv", opts)
 keymap.set("v", "K", ":m '<-2<CR>gv=gv", opts)
 
-keymap.set("n", "<C-d>", "<C-d>zz", opts)
-keymap.set("n", "<C-u>", "<C-u>zz", opts)
+-- keymap.set("n", "<C-d>", "<C-d>zz", opts)
+-- keymap.set("n", "<C-u>", "<C-u>zz", opts)
 
 -- bufferline
 keymap.set("n", "<leader>1", ":BufferLineGoToBuffer 1<cr>", opts)
