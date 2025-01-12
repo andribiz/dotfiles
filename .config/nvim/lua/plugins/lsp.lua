@@ -31,6 +31,7 @@ return {
         "json-lsp",
         "taplo",
         "biome",
+        "templ",
       })
     end,
   },
@@ -58,6 +59,7 @@ return {
         "solidity",
         "xml",
         "yaml",
+        "templ",
       },
       query_linter = {
         enable = true,
