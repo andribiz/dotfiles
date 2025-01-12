@@ -13,3 +13,5 @@ vim.opt.shortmess:append("c")
 vim.opt.conceallevel = 1
 vim.g.trouble_lualine = false
 vim.g.snacks_animate = false
+-- Enable this option to avoid conflicts with Prettier.
+vim.g.lazyvim_prettier_needs_config = true
