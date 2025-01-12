@@ -19,6 +19,7 @@ keymap.set("v", "K", ":m '<-2<CR>gv=gv", opts)
 
 -- keymap.set("n", "<C-d>", "<C-d>zz", opts)
 -- keymap.set("n", "<C-u>", "<C-u>zz", opts)
+keymap.set("n", "yc", "yygccp", { remap = true })
 
 -- bufferline
 keymap.set("n", "<leader>1", ":BufferLineGoToBuffer 1<cr>", opts)
