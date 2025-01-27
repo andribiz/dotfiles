@@ -27,15 +27,12 @@ return {
   },
   -- {
   --   "supermaven-inc/supermaven-nvim",
-  --   build = ":SupermavenUseFree",
-  --   commit = "df3ecf7",
-  --   opts = {
-  --     keymaps = {
-  --       accept_suggestion = "<C-g>",
-  --       clear_suggestion = "<C-]>",
-  --       accept_word = "<C-j>",
-  --     },
-  --   },
+  --   opts = function(_, opts)
+  --     opts.color = {
+  --       suggestion_color = "#5f87af",
+  --       cterm = 67,
+  --     }
+  --   end,
   -- },
   {
     "https://gitlab.com/HiPhish/rainbow-delimiters.nvim",
@@ -43,11 +40,15 @@ return {
   },
   {
     "stevearc/conform.nvim",
-    opts = {
-      formatters_by_ft = {
-        ["templ"] = { "templ" },
-      },
-    },
+    opts = function(_, opts)
+      opts.formatters_by_ft["templ"] = "templ"
+      opts.formatters.biome = {
+        command = "biome",
+        args = { "check", "--write", "--unsafe", "--stdin-file-path", "$FILENAME" },
+        stdin = true,
+        require_cwd = true,
+      }
+    end,
   },
   --       ["javascript"] = biome_lsp_or_prettier,
   --       ["javascriptreact"] = biome_lsp_or_prettier,

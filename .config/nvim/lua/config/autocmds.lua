@@ -40,3 +40,18 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     vim.opt_local.expandtab = true
   end,
 })
+
+local preview = require("supermaven-nvim.completion_preview")
+
+vim.api.nvim_create_autocmd({ "VimEnter", "ColorScheme" }, {
+  group = augroup("supermaven"),
+  pattern = "*",
+  callback = function(event)
+    vim.api.nvim_set_hl(0, "SupermavenSuggestion", {
+      fg = "#6c6c6c",
+      ctermfg = 242,
+      cte,
+    })
+    preview.suggestion_group = "SupermavenSuggestion"
+  end,
+})
