@@ -125,6 +125,12 @@ return {
       bigfile = { enabled = true },
       indent = { enabled = true },
       scope = { enabled = true },
+      lazygit = {
+        configure = false,
+        config = {
+          os = { editPreset = "nvim-remote" },
+        },
+      },
     },
   },
 }
