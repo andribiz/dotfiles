@@ -4,7 +4,6 @@ return {
     event = "VeryLazy",
     dependencies = {
       "stevearc/dressing.nvim",
-      "ibhagwan/fzf-lua",
     },
     opts = {
       -- Default configuration
@@ -23,7 +22,7 @@ return {
       -- File selector configuration
       --- @alias FileSelectorProvider "native" | "fzf" | "mini.pick" | "snacks" | "telescope" | string
       file_selector = {
-        provider = "fzf", -- Avoid native provider issues
+        provider = "snacks", -- Avoid native provider issues
         provider_opts = {},
       },
     },

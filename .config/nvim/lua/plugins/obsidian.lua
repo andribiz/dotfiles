@@ -74,19 +74,6 @@ return {
           -- vim.fn.jobstart({"xdg-open", url})  -- linux
         end,
 
-        picker = {
-          -- Set your preferred picker. Can be one of 'telescope.nvim', 'fzf-lua', or 'mini.pick'.
-          name = "telescope.nvim",
-          -- Optional, configure key mappings for the picker. These are the defaults.
-          -- Not all pickers support all mappings.
-          mappings = {
-            -- Create a new note from your query.
-            new = "<C-x>",
-            -- Insert a link to the selected note.
-            insert_link = "<C-l>",
-          },
-        },
-
         -- Optional, sort search results by "path", "modified", "accessed", or "created".
         -- The recommend value is "modified" and `true` for `sort_reversed`, which means, for example,
         -- that `:ObsidianQuickSwitch` will show the notes sorted by latest modified time

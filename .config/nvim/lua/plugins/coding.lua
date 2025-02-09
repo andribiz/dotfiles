@@ -1,13 +1,3 @@
--- local function biome_lsp_or_prettier(bufnr)
---   local has_biome = vim.fs.find({
---     "biome.json",
---   }, { upward = true })[1]
---   if has_biome then
---     return { "biome_check_unsafe" }
---   end
---   return { "prettier" }
--- end
-
 return {
   {
     "monkoose/neocodeium",
@@ -50,36 +40,6 @@ return {
       }
     end,
   },
-  --       ["javascript"] = biome_lsp_or_prettier,
-  --       ["javascriptreact"] = biome_lsp_or_prettier,
-  --       ["typescript"] = biome_lsp_or_prettier,
-  --       ["typescriptreact"] = biome_lsp_or_prettier,
-  --       ["vue"] = { "biome" },
-  --       ["css"] = biome_lsp_or_prettier,
-  --       ["scss"] = { "biome" },
-  --       ["less"] = { "biome" },
-  --       ["html"] = biome_lsp_or_prettier,
-  --       ["json"] = biome_lsp_or_prettier,
-  --       ["jsonc"] = { "biome" },
-  --       ["yaml"] = { "prettier" },
-  --       ["markdown"] = { "prettier" },
-  --       ["markdown.mdx"] = { "prettier" },
-  --       ["graphql"] = { "biome" },
-  --       ["handlebars"] = { "biome" },
-  --       ["proto"] = { "clang_format" },
-  --     },
-  --     formatters = {
-  --       biome_check_unsafe = {
-  --         command = "biome",
-  --         args = { "check", "--write", "--unsafe", "--stdin-file-path", "$FILENAME" },
-  --         stdin = true,
-  --         -- A function that calculates the directory to run the command in
-  --         cwd = require("conform.util").root_file({ "biome.json", "biome.jsonc" }),
-  --         require_cwd = true,
-  --       },
-  --     },
-  --   },
-  -- },
   {
     "ThePrimeagen/harpoon",
     branch = "harpoon2",
@@ -129,6 +89,69 @@ return {
         configure = false,
         config = {
           os = { editPreset = "nvim-remote" },
+        },
+      },
+      explorer = {
+        enabled = true,
+        keymaps = {
+          ["l"] = "open",
+        },
+      },
+      picker = {
+        layout = {
+          preset = "telescope",
+        },
+        layouts = {
+          telescope = {
+            reverse = true,
+            layout = {
+              box = "horizontal",
+              backdrop = false,
+              width = 0.8,
+              height = 0.9,
+              border = "none",
+              {
+                box = "vertical",
+                { win = "list", title = " Results ", title_pos = "center", border = "rounded" },
+                {
+                  win = "input",
+                  height = 1,
+                  border = "rounded",
+                  title = "{title} {live} {flags}",
+                  title_pos = "center",
+                },
+              },
+              {
+                win = "preview",
+                title = "{preview:Preview}",
+                width = 0.55,
+                border = "rounded",
+                title_pos = "center",
+              },
+            },
+          },
+        },
+        matcher = {
+          fuzzy = true, -- use fuzzy matching
+          smartcase = true, -- use smartcase
+          ignorecase = true, -- use ignorecase
+          sort_empty = false, -- sort results when the search string is empty
+          filename_bonus = true, -- give bonus for matching file names (last part of the path)
+          file_pos = true, -- support patterns like `file:line:col` and `file:line`
+          -- the bonusses below, possibly require string concatenation and path normalization,
+          -- so this can have a performance impact for large lists and increase memory usage
+          cwd_bonus = true, -- give bonus for matching files in the cwd
+          frecency = true, -- frecency bonus
+          history_bonus = true, -- give more weight to chronological order
+        },
+        keys = {
+          {
+            "<leader><space>",
+            function()
+              Snacks.picker.smart()
+            end,
+            desc = "Smart Find Files",
+          },
         },
       },
     },
