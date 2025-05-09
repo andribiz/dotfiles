@@ -1,5 +1,18 @@
 return {
   {
+    "nvim-neo-tree/neo-tree.nvim",
+    opts = function(_, opts)
+      return vim.tbl_deep_extend("force", opts, {
+        window = {
+          mappings = {
+
+            ["l"] = "open",
+          },
+        },
+      })
+    end,
+  },
+  {
     "stevearc/oil.nvim",
     opts = {},
     -- Optional dependencies
