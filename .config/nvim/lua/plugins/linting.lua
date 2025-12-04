@@ -10,6 +10,7 @@ return {
         -- typescriptreact = { "eslint" },
         -- svelte = { "eslint" },
         python = { "ruff" },
+        sql = { "sqruff" },
       },
       -- LazyVim extension to easily override linter options
       -- or add custom linters.
