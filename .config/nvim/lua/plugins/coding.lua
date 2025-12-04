@@ -1,6 +1,4 @@
 return {
-  { "mason-org/mason.nvim", version = "1.11.0" },
-  { "mason-org/mason-lspconfig.nvim", version = "1.32.0" },
   {
     "monkoose/neocodeium",
     event = "VeryLazy",
@@ -33,10 +31,11 @@ return {
   {
     "stevearc/conform.nvim",
     opts = function(_, opts)
-      opts.formatters_by_ft["templ"] = "templ"
+      opts.formatters_by_ft.sql = { "sqruff" }
+      opts.formatters_by_ft.json = nil
       opts.formatters.biome = {
         command = "biome",
-        args = { "check", "--write", "--unsafe", "--stdin-file-path", "$FILENAME" },
+        args = { "check", "--write", "--stdin-file-path", "$FILENAME" },
         stdin = true,
         require_cwd = true,
       }
