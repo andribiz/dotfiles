@@ -177,6 +177,16 @@ mods = "Command"
 [mouse]
 hide_when_typing = true
 
+[[keyboard.bindings]]
+mods = "Control|Shift"
+key = "N"
+action = "CreateNewWindow"
+
+[[keyboard.bindings]]
+action = "None"
+
+mods = "Command"
+key = "Q"
 [scrolling]
 history = 1000
 multiplier = 3
@@ -191,6 +201,7 @@ dynamic_padding = false
 opacity = 0.97
 startup_mode = "Windowed"
 blur = true
+option_as_alt = 'Both'
 
 [window.padding]
 x = 0
@@ -199,8 +210,8 @@ y = 0
 [general]
 import = ["~/.config/alacritty/themes/kanagawa.toml"]
 
-[terminal]
-
-[terminal.shell]
-program = "/usr/local/bin/zsh"
-args = ["-l", "-c", "tmux attach || tmux"]
+# [terminal]
+#
+# [terminal.shell]
+# program = "/usr/local/bin/zsh"
+# args = ["-l", "-c", "tmux attach || tmux"]
