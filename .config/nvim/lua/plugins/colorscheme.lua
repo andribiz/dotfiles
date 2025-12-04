@@ -1,20 +1,20 @@
 return {
   -- add gruvbox
-  {
-    "ellisonleao/gruvbox.nvim",
-    lazy = true,
-    priority = 1000,
-  },
+  -- {
+  --   "ellisonleao/gruvbox.nvim",
+  --   lazy = true,
+  --   priority = 1000,
+  -- },
   {
     "rebelot/kanagawa.nvim",
     lazy = true,
     priority = 1000,
   },
 
-  {
-    "folke/tokyonight.nvim",
-    enabled = false,
-  },
+  -- {
+  --   "folke/tokyonight.nvim",
+  --   enabled = false,
+  -- },
   -- catppuccin
   -- {
   --   "catppuccin/nvim",
